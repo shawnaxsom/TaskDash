@@ -1,0 +1,415 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="DAA9F4FA-D025-45B1-ACED-0457A7C2583D/d:Properties/f:Resources.Designer.cs" caret="2052" fromTop="46" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:App.xaml" caret="823" fromTop="18" />
+      <File id="DAA9F4FA-D025-45B1-ACED-0457A7C2583D/d:Themes/f:Generic.xaml" caret="3749" fromTop="31" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Data/f:DataManager.cs" caret="161" fromTop="8" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:MainWindow.xaml" caret="4287" fromTop="21" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:ExtensionMethods/f:Strings.cs" caret="726" fromTop="19" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:Tasks.cs" caret="2129" fromTop="26" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/f:ModelCollectionBase.cs" caret="564" fromTop="15" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:ViewModels/f:TaskViewModel.cs" caret="835" fromTop="3" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:MainWindow.xaml.cs" caret="1332" fromTop="20" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:Task.cs" caret="4978" fromTop="9" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/f:ModelBase.cs" caret="3497" fromTop="29" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:Log.cs" caret="977" fromTop="20" />
+      <File id="2209551B-5457-4CF0-8E95-6A2E0484443D/f:BsonDeserializer.cs" caret="8699" fromTop="9" />
+      <File id="2209551B-5457-4CF0-8E95-6A2E0484443D/f:MongoQueryExecutor.cs" caret="2243" fromTop="67" />
+      <File id="2209551B-5457-4CF0-8E95-6A2E0484443D/f:MagicProperty.cs" caret="9396" fromTop="26" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:TaskItem.cs" caret="273" fromTop="11" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:App.xaml.cs" caret="430" fromTop="16" />
+      <File id="DAA9F4FA-D025-45B1-ACED-0457A7C2583D/f:ListBoxWithAddRemove.cs" caret="8536" fromTop="29" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:Link.cs" caret="834" fromTop="35" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:Logs.cs" caret="407" fromTop="15" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:RelatedKey.cs" caret="822" fromTop="35" />
+      <File id="2209551B-5457-4CF0-8E95-6A2E0484443D/f:BSONSerializer.cs" caret="11465" fromTop="19" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:ExtensionMethods/f:Collections.cs" caret="1072" fromTop="16" />
+      <File id="2209551B-5457-4CF0-8E95-6A2E0484443D/f:Message.cs" caret="1266" fromTop="19" />
+      <File id="DAA9F4FA-D025-45B1-ACED-0457A7C2583D/f:TextBoxWithDescription.cs" caret="3151" fromTop="30" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationWindow.xaml.cs" caret="1462" fromTop="28" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationWindow.xaml" caret="1161" fromTop="22" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Actions/f:OpenTaskAction.cs" caret="198" fromTop="9" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="493" fromTop="8" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:MainWindow.xaml.cs" caret="7816" fromTop="27" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:Task.cs" caret="867" fromTop="25" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:Tasks.cs" caret="1994" fromTop="21" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:MainWindow.xaml.cs" caret="2258" fromTop="35" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:MainWindow.xaml.cs" caret="1939" fromTop="28" />
+      <File id="D4C3C926-0F0A-48B4-930A-BEA449B96286/d:Models/f:Task.cs" caret="4966" fromTop="24" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:MainWindow.xaml.cs" caret="3506" fromTop="21" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:MainWindow.xaml.cs" caret="2458" fromTop="41" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/f:MainWindow.xaml.cs" caret="3879" fromTop="28" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationWindow.xaml.cs" caret="640" fromTop="28" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationWindow.xaml.cs" caret="640" fromTop="35" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="1161" fromTop="42" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationWindow.xaml.cs" caret="674" fromTop="26" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="604" fromTop="17" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="436" fromTop="7" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="604" fromTop="22" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="604" fromTop="15" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="1161" fromTop="33" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="826" fromTop="25" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="795" fromTop="15" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationWindow.xaml" caret="905" fromTop="15" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationWindow.xaml.cs" caret="1489" fromTop="44" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="1626" fromTop="33" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="1626" fromTop="33" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="1626" fromTop="33" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="1432" fromTop="35" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Actions/f:OpenTaskAction.cs" caret="396" fromTop="7" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Actions/f:OpenTaskAction.cs" caret="115" fromTop="5" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Actions/f:OpenTaskAction.cs" caret="198" fromTop="9" />
+      <File id="981B620C-227C-4921-84E7-BCFE660DECE7/d:Notifications/f:NotificationManager.cs" caret="1137" fromTop="25" />
+    </RecentEdits>
+  </RecentFiles>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="public" priority="1405" />
+      <Item value="private" priority="383" />
+      <Item value="Task`0" priority="477" />
+      <Item value="return" priority="511" />
+      <Item value="new" priority="1056" />
+      <Item value="Task" priority="174" />
+      <Item value="DataManager`0" priority="63" />
+      <Item value="string" priority="670" />
+      <Item value="GetHashCode`0" priority="31" />
+      <Item value="InitializingNewItemEventArgs`0" priority="63" />
+      <Item value="ObjectId`0" priority="63" />
+      <Item value="_Id" priority="64" />
+      <Item value="tasks" priority="479" />
+      <Item value="Key" priority="63" />
+      <Item value="task" priority="479" />
+      <Item value="listBoxTasks" priority="159" />
+      <Item value="String`0" priority="125" />
+      <Item value="this" priority="1215" />
+      <Item value="DateTime`0" priority="191" />
+      <Item value="Log`0" priority="124" />
+      <Item value="listBoxLogs" priority="159" />
+      <Item value="taskSelected" priority="31" />
+      <Item value="MongoCollection" priority="28" />
+      <Item value="BusinessBase" priority="31" />
+      <Item value="T`0" priority="31" />
+      <Item value="null" priority="127" />
+      <Item value="throw" priority="95" />
+      <Item value="NotImplementedException" priority="29" />
+      <Item value="IMongoCollection`0" priority="95" />
+      <Item value="Link`0" priority="30" />
+      <Item value="bool" priority="159" />
+      <Item value="IEnumerable" priority="31" />
+      <Item value="_Items" priority="63" />
+      <Item value="OnPropertyChanged`0" priority="221" />
+      <Item value="db" priority="31" />
+      <Item value="IOrderedEnumerable" priority="31" />
+      <Item value="tsks" priority="31" />
+      <Item value="ListBox`0" priority="63" />
+      <Item value="var" priority="31" />
+      <Item value="PointFromScreen`0" priority="31" />
+      <Item value="from" priority="31" />
+      <Item value="where" priority="63" />
+      <Item value="select" priority="31" />
+      <Item value="t" priority="63" />
+      <Item value="logs" priority="63" />
+      <Item value="System" priority="63" />
+      <Item value="Console`0" priority="26" />
+      <Item value="List`0" priority="63" />
+      <Item value="TaskViewModel`0" priority="191" />
+      <Item value="ObservableCollection&lt;Task&gt;" priority="28" />
+      <Item value="void" priority="159" />
+      <Item value="TaskList" priority="31" />
+      <Item value="int" priority="31" />
+      <Item value="i" priority="64" />
+      <Item value="_currentTask" priority="63" />
+      <Item value="value" priority="127" />
+      <Item value="TextBox`0" priority="95" />
+      <Item value="ContentPresenter`0" priority="64" />
+      <Item value="contentPresenter" priority="32" />
+      <Item value="as" priority="31" />
+      <Item value="e" priority="191" />
+      <Item value="ListBoxItem`0" priority="31" />
+      <Item value="override" priority="159" />
+      <Item value="Control`0" priority="31" />
+      <Item value="textbox" priority="63" />
+      <Item value="ListBox" priority="57" />
+      <Item value="GeneralTransform`0" priority="31" />
+      <Item value="ItemCollection`0" priority="31" />
+      <Item value="Object`0" priority="31" />
+      <Item value="_listBox" priority="287" />
+      <Item value="RoutedEventHandler" priority="29" />
+      <Item value="EventHandler`0" priority="31" />
+      <Item value="IEnumerable`0" priority="31" />
+      <Item value="SelectionChangedEventHandler" priority="28" />
+      <Item value="SelectionChanged" priority="63" />
+      <Item value="RaiseEvent`0" priority="95" />
+      <Item value="sender" priority="31" />
+      <Item value="object" priority="63" />
+      <Item value="if" priority="351" />
+      <Item value="RoutedEventArgs" priority="28" />
+      <Item value="RoutedEventHandler`0" priority="92" />
+      <Item value="RoutedEvent`0" priority="27" />
+      <Item value="ListBoxWithAddRemove`0" priority="63" />
+      <Item value="SelectionChangedEvent" priority="63" />
+      <Item value="TextBlock`0" priority="31" />
+      <Item value="TaskDash" priority="31" />
+      <Item value="DesignerSerializationVisibility`0" priority="31" />
+      <Item value="IsEditing" priority="127" />
+      <Item value="KeyEventHandler" priority="28" />
+      <Item value="Visible" priority="33" />
+      <Item value="Visibility`0" priority="63" />
+      <Item value="else" priority="95" />
+      <Item value="Collapsed" priority="50" />
+      <Item value="F2" priority="16" />
+      <Item value="Enter" priority="16" />
+      <Item value="IModelBase`0" priority="32" />
+      <Item value="DisableDpiAwarenessAttribute`0" priority="31" />
+      <Item value="virtual" priority="31" />
+      <Item value="abstract" priority="31" />
+      <Item value="NotificationWindow" priority="86" />
+      <Item value="window" priority="31" />
+      <Item value="NotificationManager`0" priority="63" />
+      <Item value="NotificationManager" priority="57" />
+      <Item value="_notificationManager" priority="31" />
+      <Item value="_tasks" priority="127" />
+      <Item value="_timer" priority="319" />
+      <Item value="Timer" priority="58" />
+      <Item value="Threading" priority="54" />
+      <Item value="autoEvent" priority="31" />
+      <Item value="foreach" priority="127" />
+      <Item value="in" priority="127" />
+      <Item value="NotificationWindow`0" priority="63" />
+      <Item value="notification" priority="127" />
+      <Item value="_notifier" priority="159" />
+      <Item value="Windows" priority="26" />
+      <Item value="delegate" priority="64" />
+      <Item value="ObservableCollection&lt;string&gt;" priority="86" />
+      <Item value="Dictionary" priority="31" />
+      <Item value="tags" priority="287" />
+      <Item value="tag" priority="159" />
+      <Item value="SortedList" priority="31" />
+      <Item value="comboBoxTagsFilter" priority="63" />
+      <Item value="Tasks`0" priority="31" />
+      <Item value="base" priority="31" />
+      <Item value="TagList" priority="31" />
+      <Item value="RefreshTagList`0" priority="63" />
+      <Item value="OnCollectionChanged`0" priority="63" />
+      <Item value="NotifyCollectionChangedEventArgs" priority="28" />
+      <Item value="NotifyCollectionChangedAction`0" priority="31" />
+      <Item value="PropertyChangedEventArgs" priority="28" />
+      <Item value="_tagList" priority="191" />
+      <Item value="cleanTag" priority="31" />
+      <Item value="Details" priority="31" />
+      <Item value="matchPhrase" priority="31" />
+      <Item value="Hidden" priority="16" />
+      <Item value="static" priority="30" />
+      <Item value="Window`0" priority="31" />
+      <Item value="TimerCallback`0" priority="63" />
+      <Item value="timerCallback" priority="32" />
+      <Item value="TimerCallback" priority="28" />
+      <Item value="Dispatcher`0" priority="31" />
+      <Item value="DispatcherTimer" priority="87" />
+      <Item value="DispatcherPriority`0" priority="63" />
+      <Item value="CheckForNotifications`0" priority="64" />
+      <Item value="Delegate`0" priority="31" />
+      <Item value="EventHandler" priority="28" />
+      <Item value="TimeSpan" priority="28" />
+      <Item value="notifier" priority="31" />
+      <Item value="OpenTaskAction" priority="28" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TaskDash.DataManager">
+      <Item value="GetData`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Norm.ObjectId">
+      <Item value="NewObjectId`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Norm.Collections.IMongoCollection`1">
+      <Item value="Save`0" priority="26" />
+      <Item value="Find`2" priority="26" />
+      <Item value="AsQueryable`0" priority="269" />
+      <Item value="Insert`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TaskDash.Task">
+      <Item value="Key" priority="26" />
+      <Item value="Logs" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ListBox">
+      <Item value="ItemsSource" priority="80" />
+      <Item value="SetBinding`0" priority="53" />
+      <Item value="DataContext" priority="80" />
+      <Item value="SelectedItem" priority="80" />
+      <Item value="Items" priority="53" />
+      <Item value="SelectedValue" priority="26" />
+      <Item value="DisplayMemberPath" priority="80" />
+      <Item value="SelectionChanged" priority="26" />
+      <Item value="KeyDown" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Controls.ListBox">
+      <Item value="ItemBindingGroupProperty" priority="26" />
+      <Item value="ItemsSourceProperty" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TaskDash.MainWindow">
+      <Item value="DataContext" priority="134" />
+      <Item value="listBoxTasks" priority="53" />
+      <Item value="DataContextChanged" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IQueryable`1">
+      <Item value="ToList`1" priority="188" />
+      <Item value="ToLookup`2" priority="53" />
+      <Item value="ToArray`1" priority="26" />
+      <Item value="AsQueryable`1" priority="53" />
+      <Item value="Cast`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="AsEnumerable`1" priority="26" />
+      <Item value="Count" priority="54" />
+      <Item value="ToList`1" priority="26" />
+      <Item value="Add`0" priority="53" />
+      <Item value="Contains`0" priority="26" />
+      <Item value="Sort`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="ToString`0" priority="26" />
+      <Item value="AsQueryable`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.ObjectModel.ObservableCollection`1">
+      <Item value="Add`0" priority="107" />
+      <Item value="Clear`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TaskDash.Controls.ListBoxWithAddRemove">
+      <Item value="ItemTemplate" priority="26" />
+      <Item value="Template" priority="80" />
+      <Item value="SelectionChanged" priority="134" />
+      <Item value="ItemsSource" priority="26" />
+      <Item value="GetTemplateChild`0" priority="26" />
+      <Item value="SelectedItem" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Media.VisualTreeHelper">
+      <Item value="GetChild`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Input.KeyEventArgs">
+      <Item value="Source" priority="26" />
+      <Item value="Key" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.TextBox">
+      <Item value="SelectionChanged" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TaskDash.Controls.ListBoxWithAddRemove">
+      <Item value="SelectionChangedEvent" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TaskDash.Core.Models.Task">
+      <Item value="IsEditing" priority="107" />
+      <Item value="IsDisplaying" priority="53" />
+      <Item value="ToggleEditing`0" priority="26" />
+      <Item value="ToString`0" priority="53" />
+      <Item value="Key" priority="53" />
+      <Item value="Description" priority="26" />
+      <Item value="DueDate" priority="26" />
+      <Item value="Tags" priority="107" />
+      <Item value="PropertyChanged" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Visibility">
+      <Item value="Collapsed" priority="26" />
+      <Item value="Visible" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TaskDash.Core.ModelBase`1">
+      <Item value="IsEditing" priority="26" />
+      <Item value="ToString`0" priority="53" />
+      <Item value="EditableValue" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Parse`0" priority="26" />
+      <Item value="Today" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="ToString`0" priority="26" />
+      <Item value="Date" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NotificationWindow">
+      <Item value="Show`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.DatePicker">
+      <Item value="DataContext" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Timers.Timer">
+      <Item value="Start`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TaskDash.ViewModels.TaskViewModel">
+      <Item value="TaskList" priority="80" />
+      <Item value="TagList" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TaskDash.Notifications.NotificationWindow">
+      <Item value="Show`0" priority="107" />
+      <Item value="Dispatcher" priority="134" />
+      <Item value="Visibility" priority="26" />
+      <Item value="Close`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Threading.Dispatcher">
+      <Item value="Invoke`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Split`0" priority="26" />
+      <Item value="Trim`0" priority="26" />
+      <Item value="ToLower`0" priority="53" />
+      <Item value="Contains`0" priority="26" />
+      <Item value="CloselyMatches`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ComboBox">
+      <Item value="DataContext" priority="26" />
+      <Item value="Tag" priority="26" />
+      <Item value="SelectedValue" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="IsNullOrEmpty`0" priority="26" />
+      <Item value="Empty" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TaskDash.Core.Models.Tasks">
+      <Item value="CollectionChanged" priority="26" />
+      <Item value="TagList" priority="26" />
+      <Item value="PropertyChanged" priority="26" />
+      <Item value="Count" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Specialized.NotifyCollectionChangedEventArgs">
+      <Item value="Action" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Collections.Specialized.NotifyCollectionChangedAction">
+      <Item value="Reset" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Threading.DispatcherPriority">
+      <Item value="Normal" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Threading.DispatcherTimer">
+      <Item value="Tick" priority="26" />
+      <Item value="Interval" priority="26" />
+      <Item value="Dispatcher" priority="53" />
+      <Item value="Start`0" priority="26" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>

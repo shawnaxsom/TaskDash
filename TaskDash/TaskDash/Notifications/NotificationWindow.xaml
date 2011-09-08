@@ -1,0 +1,60 @@
+﻿<Window x:Class="TaskDash.Notifications.NotificationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Notification Popup" Width="300" SizeToContent="Height"
+        WindowStyle="None" AllowsTransparency="True"  Background="Transparent"
+        MouseEnter="MakeOpaque"
+        Closing="OnWindowClosing">
+    <Grid x:Name="gridWindow" RenderTransformOrigin="0,1" >
+
+        <!-- Notification area -->
+        <Border BorderThickness="1" Background="Beige" BorderBrush="Black" CornerRadius="10">
+            <StackPanel Margin="20">
+                <TextBlock x:Name="textBlockTitle" TextWrapping="Wrap" Margin="5" />
+                <TextBlock x:Name="textBlockDescription" TextWrapping="Wrap" Margin="5" />
+                <!--<CheckBox Content="Checkable" Margin="5 5 0 5" />-->
+                <ComboBox x:Name="comboBoxDelay"
+                          IsEditable="True"
+                          SelectedValue="{Binding DelayLengthCombo}">
+                    <ComboBoxItem>5 Minutes</ComboBoxItem>
+                    <ComboBoxItem>10 Minutes</ComboBoxItem>
+                    <ComboBoxItem>15 Minutes</ComboBoxItem>
+                    <ComboBoxItem>30 Minutes</ComboBoxItem>
+                    <ComboBoxItem>1 Hour</ComboBoxItem>
+                    <ComboBoxItem>3 Hours</ComboBoxItem>
+                    <ComboBoxItem>5 Hours</ComboBoxItem>
+                    <ComboBoxItem>1 Day</ComboBoxItem>
+                    <ComboBoxItem>2 Days</ComboBoxItem>
+                    <ComboBoxItem>3 Days</ComboBoxItem>
+                    <ComboBoxItem>1 Week</ComboBoxItem>
+                </ComboBox>
+                <StackPanel x:Name="stackPanelButtons" Orientation="Horizontal">
+                    <Button x:Name="buttonDismiss" Click="DismissNotification" HorizontalAlignment="Center">Dismiss</Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Animation -->
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                <BeginStoryboard>
+                    <Storyboard x:Name="storyBoardFadeWindow" Completed="OnStoryBoardFadeWindowCompleted">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                            <SplineDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                            <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <SplineDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
+                            <SplineDoubleKeyFrame KeyTime="0:0:25" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
+        <Grid.RenderTransform>
+            <ScaleTransform ScaleY="1" />
+        </Grid.RenderTransform>
+
+    </Grid>
+</Window>
