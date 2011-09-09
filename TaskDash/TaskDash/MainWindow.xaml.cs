@@ -436,7 +436,7 @@ namespace TaskDash
 
         public void OnListBoxTasksSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //RefreshTaskBindings();
+            RefreshTaskBindings();
 
             UpdatedSelected(e);
         }
