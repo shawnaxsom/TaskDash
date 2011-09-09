@@ -5,3 +5,9 @@
 #RESHARPER
 *ReSharper*
 *.user
+
+#COMPILING
+*/obj/*
+
+
+*.xlsx
