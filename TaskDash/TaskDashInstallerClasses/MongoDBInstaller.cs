@@ -46,6 +46,14 @@ namespace TaskDashInstallerClasses
 
         private void ExtractZip()
         {
+            if (Directory.Exists(OutputDirectory))
+            {
+                MessageBox.Show(
+@"An instance of MongoDB has been detected. 
+Setup will not overwrite the installation, but the MongoDB service will be initialized.", 
+                    "TaskDash MongoDBInstaller");
+            }
+
             using (ZipFile zip1 = ZipFile.Read(ZipFilePath))
             {
                 var selection = (from e in zip1.Entries

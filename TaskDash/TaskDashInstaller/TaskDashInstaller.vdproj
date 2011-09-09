@@ -27,56 +27,26 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1AF0F2908975BF6133A18BEF169DD272"
+        "OwnerKey" = "8:_9CB665441452C97FB005E5B48E6D7ED4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1AF0F2908975BF6133A18BEF169DD272"
+        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_23FD9C7E189D0DC7B78B8EFBC87550E6"
         "OwnerKey" = "8:_D2F448C78E43444DB79776B7D61B9C52"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4B8A926FE56CA4026D88894B9B4E3D0B"
-        "OwnerKey" = "8:_53F83059894301AC1253A68989CE8C99"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4B8A926FE56CA4026D88894B9B4E3D0B"
+        "MsmKey" = "8:_9CB665441452C97FB005E5B48E6D7ED4"
         "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_53F83059894301AC1253A68989CE8C99"
-        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7A89726E389F82D54E7097622E440491"
-        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_88FFBFC8CF9AAC3E497E125C8E5B7AA3"
-        "OwnerKey" = "8:_7A89726E389F82D54E7097622E440491"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_88FFBFC8CF9AAC3E497E125C8E5B7AA3"
-        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AF6B0C700FD90D0CC2B15A76A70F9295"
-        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AF6B0C700FD90D0CC2B15A76A70F9295"
-        "OwnerKey" = "8:_88FFBFC8CF9AAC3E497E125C8E5B7AA3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -87,14 +57,68 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BA513C80C99BAABA747F6F5AB41E5634"
+        "OwnerKey" = "8:_DC5325AEBECCA79F5456F8B7B1FBC303"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BA513C80C99BAABA747F6F5AB41E5634"
+        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D2F448C78E43444DB79776B7D61B9C52"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_D4E7D90EBD761C0BE40DD3375D4F9364"
+        "OwnerKey" = "8:_BA513C80C99BAABA747F6F5AB41E5634"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D4E7D90EBD761C0BE40DD3375D4F9364"
+        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DC5325AEBECCA79F5456F8B7B1FBC303"
+        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AF6B0C700FD90D0CC2B15A76A70F9295"
+        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DC5325AEBECCA79F5456F8B7B1FBC303"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BA513C80C99BAABA747F6F5AB41E5634"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D4E7D90EBD761C0BE40DD3375D4F9364"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D2F448C78E43444DB79776B7D61B9C52"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -106,37 +130,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D2F448C78E43444DB79776B7D61B9C52"
+        "OwnerKey" = "8:_9CB665441452C97FB005E5B48E6D7ED4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B876F73FB8F04E9DBA2DCB899DC56AEE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7A89726E389F82D54E7097622E440491"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_88FFBFC8CF9AAC3E497E125C8E5B7AA3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_53F83059894301AC1253A68989CE8C99"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4B8A926FE56CA4026D88894B9B4E3D0B"
+        "OwnerKey" = "8:_1AF0F2908975BF6133A18BEF169DD272"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -157,13 +157,34 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
+            }
         }
         "Release"
         {
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\TaskDashInstaller.msi"
+        "OutputFilename" = "8:..\\..\\..\\..\\..\\..\\..\\TaskDash\\TaskDashInstaller.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -173,6 +194,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -256,6 +298,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1AF0F2908975BF6133A18BEF169DD272"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1AF0F2908975BF6133A18BEF169DD272"
+                    {
+                    "Name" = "8:WPFToolkit.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:WPFToolkit.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CC8B8E551ECB4685A47EEC4D6CDACF8D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_23FD9C7E189D0DC7B78B8EFBC87550E6"
             {
             "AssemblyRegister" = "3:1"
@@ -287,45 +360,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4B8A926FE56CA4026D88894B9B4E3D0B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_4B8A926FE56CA4026D88894B9B4E3D0B"
-                    {
-                    "Name" = "8:WPFToolkit.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:WPFToolkit.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_CC8B8E551ECB4685A47EEC4D6CDACF8D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_53F83059894301AC1253A68989CE8C99"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9CB665441452C97FB005E5B48E6D7ED4"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_53F83059894301AC1253A68989CE8C99"
+                    "_9CB665441452C97FB005E5B48E6D7ED4"
                     {
                     "Name" = "8:System.Windows.Controls.Layout.Toolkit.dll"
                     "Attributes" = "3:512"
@@ -349,45 +391,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7A89726E389F82D54E7097622E440491"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:TaskDash.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_7A89726E389F82D54E7097622E440491"
-                    {
-                    "Name" = "8:TaskDash.Controls.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:TaskDash.Controls.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_CC8B8E551ECB4685A47EEC4D6CDACF8D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_88FFBFC8CF9AAC3E497E125C8E5B7AA3"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BA513C80C99BAABA747F6F5AB41E5634"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:TaskDash.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_88FFBFC8CF9AAC3E497E125C8E5B7AA3"
+                    "_BA513C80C99BAABA747F6F5AB41E5634"
                     {
                     "Name" = "8:TaskDash.Core.dll"
                     "Attributes" = "3:512"
@@ -411,20 +422,51 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AF6B0C700FD90D0CC2B15A76A70F9295"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D4E7D90EBD761C0BE40DD3375D4F9364"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Norm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_AF6B0C700FD90D0CC2B15A76A70F9295"
+                    "_D4E7D90EBD761C0BE40DD3375D4F9364"
                     {
                     "Name" = "8:Norm.dll"
                     "Attributes" = "3:512"
                     }
                 }
             "SourcePath" = "8:Norm.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CC8B8E551ECB4685A47EEC4D6CDACF8D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DC5325AEBECCA79F5456F8B7B1FBC303"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:TaskDash.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_DC5325AEBECCA79F5456F8B7B1FBC303"
+                    {
+                    "Name" = "8:TaskDash.Controls.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:TaskDash.Controls.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_CC8B8E551ECB4685A47EEC4D6CDACF8D"
@@ -521,7 +563,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TaskDash"
         "ProductCode" = "8:{FF8C8F41-7D35-4F72-9B29-8C8E3FE96F7D}"
-        "PackageCode" = "8:{0C8347E0-2B21-4133-AA91-324D311A3635}"
+        "PackageCode" = "8:{49EBCA3D-B0FA-49A4-AFB3-ED86AA6014DF}"
         "UpgradeCode" = "8:{4F870D5D-510D-4A04-A765-20D99DB5DEAE}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1438,7 +1480,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B876F73FB8F04E9DBA2DCB899DC56AEE"
             {
-            "SourcePath" = "8:..\\TaskDash\\obj\\x86\\Debug\\TaskDash.exe"
+            "SourcePath" = "8:..\\TaskDash\\obj\\x86\\Release\\TaskDash.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_CC8B8E551ECB4685A47EEC4D6CDACF8D"
@@ -1466,7 +1508,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D2F448C78E43444DB79776B7D61B9C52"
             {
-            "SourcePath" = "8:..\\TaskDashInstallerClasses\\obj\\Debug\\TaskDashInstallerClasses.dll"
+            "SourcePath" = "8:..\\TaskDashInstallerClasses\\obj\\Release\\TaskDashInstallerClasses.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_CC8B8E551ECB4685A47EEC4D6CDACF8D"

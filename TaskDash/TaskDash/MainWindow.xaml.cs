@@ -61,7 +61,8 @@ namespace TaskDash
             _clipboardMonitor = new ClipboardMonitorService();
             _clipboardMonitor.ClipboardData += new RoutedEventHandler(_clipboardMonitor_ClipboardData);
 
-            listBoxTasks.DataContext = _tasks.FilteredTasks;
+            DataContext = _tasks;
+            listBoxTasks.DataContext = _tasks.FilteredTasks; // TODO: Is there any way to bind this behind the scenes?
             comboBoxTagsFilter.DataContext = _tasks.Tasks.TagList;
             comboBoxSortBy.DataContext = TaskComparer.Instance;
 
@@ -282,7 +283,7 @@ namespace TaskDash
         {
             Search();
 
-            RefreshTaskBindings();
+            //RefreshTaskBindings();
         }
 
         private void Cycle(int indexChange)
@@ -435,7 +436,7 @@ namespace TaskDash
 
         public void OnListBoxTasksSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            RefreshTaskBindings();
+            //RefreshTaskBindings();
 
             UpdatedSelected(e);
         }

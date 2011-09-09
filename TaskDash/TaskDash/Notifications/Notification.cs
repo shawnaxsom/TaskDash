@@ -110,8 +110,8 @@ namespace TaskDash.Notifications
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof (Notification)) return false;
-            return Equals((Notification) obj);
+            if (obj.GetType() != typeof(Notification)) return false;
+            return Equals((Notification)obj);
         }
 
         internal void Dismiss()
@@ -129,9 +129,23 @@ namespace TaskDash.Notifications
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Equals(other._delayLength, _delayLength) && other._dismissButtonPressed.Equals(_dismissButtonPressed) &&
-                   Equals(other.Description, Description) && other.DelayTime.Equals(DelayTime) &&
-                   Equals(other.Commands, Commands);
+
+            bool equal = CheckEquals(other);
+
+            return equal;
+        }
+
+        private bool CheckEquals(Notification other)
+        {
+            bool equalLength = Equals(other._delayLength, _delayLength);
+            bool equalButtonPresses = other._dismissButtonPressed.Equals(_dismissButtonPressed);
+            bool equalDescriptions = Equals(other.Description, Description);
+            bool equalDelay = other.DelayTime.Equals(DelayTime);
+
+            return equalLength
+                   && equalButtonPresses
+                   && equalDescriptions
+                   && equalDelay;
         }
 
         public override int GetHashCode()
@@ -139,10 +153,10 @@ namespace TaskDash.Notifications
             unchecked
             {
                 int result = (_delayLength != null ? _delayLength.GetHashCode() : 0);
-                result = (result*397) ^ _dismissButtonPressed.GetHashCode();
-                result = (result*397) ^ (Description != null ? Description.GetHashCode() : 0);
-                result = (result*397) ^ DelayTime.GetHashCode();
-                result = (result*397) ^ (Commands != null ? Commands.GetHashCode() : 0);
+                result = (result * 397) ^ _dismissButtonPressed.GetHashCode();
+                result = (result * 397) ^ (Description != null ? Description.GetHashCode() : 0);
+                result = (result * 397) ^ DelayTime.GetHashCode();
+                result = (result * 397) ^ (Commands != null ? Commands.GetHashCode() : 0);
                 return result;
             }
         }
