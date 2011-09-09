@@ -1,0 +1,7 @@
+##STANDARD
+*~
+*.swp
+
+#RESHARPER
+*ReSharper*
+*.user
