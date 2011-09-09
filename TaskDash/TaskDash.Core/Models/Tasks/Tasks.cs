@@ -116,5 +116,13 @@ namespace TaskDash.Core.Models.Tasks
                 task.Completed = true;
             }
         }
+
+        public void Save()
+        {
+            foreach (Task task in this)
+            {
+                task.Save();
+            }
+        }
     }
 }

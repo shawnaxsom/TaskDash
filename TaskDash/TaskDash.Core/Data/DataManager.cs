@@ -50,11 +50,23 @@ namespace TaskDash.Core.Data
             internal set { InstanceHolder._instance = value; }
         }
 
+        public string ConnectionString
+        {
+            get
+            {
+#if DEBUG
+                return "mongodb://localhost/TaskDashDebug";
+#else
+                return "mongodb://localhost/TaskDash";
+#endif
+            }
+        }
+
         #region IDataManager Members
 
         public IMongoCollection<Task> GetData()
         {
-            using (var database = Mongo.Create("mongodb://localhost/TaskDash"))
+            using (var database = Mongo.Create(ConnectionString))
             {
                 IMongoCollection<Task> tasks = database.GetCollection<Task>("tasks");
 

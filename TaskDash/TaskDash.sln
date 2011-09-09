@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDash.Controls", "TaskDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDash.Core", "TaskDash.Core\TaskDash.Core.csproj", "{D4C3C926-0F0A-48B4-930A-BEA449B96286}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskDashInstallerClasses", "TaskDashInstallerClasses\TaskDashInstallerClasses.csproj", "{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TaskDashInstaller", "TaskDashInstaller\TaskDashInstaller.vdproj", "{BE553C35-C30D-43C8-B6BD-66B969C213BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,28 @@ Global
 		{D4C3C926-0F0A-48B4-930A-BEA449B96286}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D4C3C926-0F0A-48B4-930A-BEA449B96286}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D4C3C926-0F0A-48B4-930A-BEA449B96286}.Release|x86.ActiveCfg = Release|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4C23F8F0-86CB-4EEF-8570-0578A852DAE8}.Release|x86.ActiveCfg = Release|Any CPU
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Debug|Any CPU.ActiveCfg = Debug
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Debug|Any CPU.Build.0 = Debug
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Debug|Mixed Platforms.Build.0 = Debug
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Debug|x86.ActiveCfg = Debug
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Debug|x86.Build.0 = Debug
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Release|Any CPU.ActiveCfg = Release
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Release|Any CPU.Build.0 = Release
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Release|Mixed Platforms.ActiveCfg = Release
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Release|Mixed Platforms.Build.0 = Release
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Release|x86.ActiveCfg = Release
+		{BE553C35-C30D-43C8-B6BD-66B969C213BC}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

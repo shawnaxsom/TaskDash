@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace TaskDash.ViewModels
 {
-    public class ViewModelBase<T> : INotifyPropertyChanged
+    public class ViewModelBase<T> : DependencyObject
     {
         public int i { get; protected set; }
         public event PropertyChangedEventHandler PropertyChanged;

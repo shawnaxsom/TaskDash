@@ -50,11 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataManager.cs" />
+    <Compile Include="ExtensionMethods\Bools.cs" />
     <Compile Include="ExtensionMethods\Collections.cs" />
+    <Compile Include="ExtensionMethods\Images.cs" />
     <Compile Include="ExtensionMethods\Strings.cs" />
     <Compile Include="IMongoDocument.cs" />
     <Compile Include="ModelBase.cs" />
     <Compile Include="ModelCollectionBase.cs" />
+    <Compile Include="Models\Tasks\AutoLogger.cs" />
     <Compile Include="Models\Tasks\Word.cs" />
     <Compile Include="Models\Tasks\Words.cs" />
     <Compile Include="Models\Tasks\Phrases.cs" />

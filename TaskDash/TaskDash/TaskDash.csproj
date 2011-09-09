@@ -93,6 +93,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LoggingRequestDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,6 +106,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ExtensionMethods\ControlExtensionMethods.cs" />
+    <Compile Include="LoggingRequestDialog.xaml.cs">
+      <DependentUpon>LoggingRequestDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoggingRequestDialogViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -116,6 +124,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Notifications\Notification.cs" />
     <Compile Include="Notifications\NotificationList.cs" />
     <Compile Include="Notifications\NotificationManager.cs" />

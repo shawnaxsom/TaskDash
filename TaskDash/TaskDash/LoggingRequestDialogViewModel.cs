@@ -7,6 +7,7 @@ using System.Windows.Input;
 using TaskDash.Core;
 using TaskDash.Core.ExtensionMethods;
 using TaskDash.Core.Models.Tasks;
+using TaskDash.ViewModels;
 
 namespace TaskDash
 {

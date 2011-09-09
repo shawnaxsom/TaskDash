@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Linq;
 using Norm.Attributes;
 
 namespace TaskDash.Core.Models.Tasks
@@ -92,6 +94,16 @@ namespace TaskDash.Core.Models.Tasks
                     }
                 }
             }
+        }
+
+        public Log GetMostRecentLog()
+        {
+            var logs =
+                from l in this
+                orderby l.EntryDate descending
+                select l;
+
+            return logs.ElementAt(0);
         }
     }
 }
