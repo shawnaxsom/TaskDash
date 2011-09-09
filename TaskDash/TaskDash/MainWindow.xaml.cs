@@ -765,10 +765,40 @@ namespace TaskDash
             OpenIssueTracker();
         }
 
+        private void buttonIssueTrackerSearch_Click(object sender, RoutedEventArgs e)
+        {
+            FindInIssueTracker();
+        }
+
         public void OpenIssueTracker()
         {
             Process.Start("http://devjira/browse/" + SelectedTask.Key);
         }
+
+        private void FindInIssueTracker()
+        {
+            const string OR = "+OR+";
+            const string LIKE = "+~+";
+            const string options = "&reset=true&tempMax=10";
+
+
+            string page = @"http://devjira/secure/IssueNavigator.jspa?reset=true&jqlQuery=";
+            string[] queryWords = SelectedTask.Description.Split(' ');
+            string jqlQueryTerms = @"'" + String.Join("+", queryWords) + @"'";
+
+            // I found out the syntax to this by doing a search, then doing Views -> Full Content. URL has querystrings
+            // E.g. http://devjira-prod/secure/IssueNavigator.jspa?reset=true&jqlQuery=summary+~+"test+this+out"+OR+description+~+"test+this+out"+OR+comment+~+"test+this+out"+OR+environment+~+"test+this+out"&tempMax=1000&tempMax=1000
+            string jqlQuery = 
+                "summary" + LIKE + jqlQueryTerms
+                + OR + "description" + LIKE + jqlQueryTerms
+                //+ OR + "comment" + LIKE + jqlQueryTerms       // This is SLOW
+                ;
+
+
+            string queryUrl = page + jqlQuery + options;
+            Process.Start(queryUrl);
+        }
+
 
         public void Dispose()
         {
@@ -784,5 +814,7 @@ namespace TaskDash
         {
             Dispose();
         }
+
+        
     }
 }

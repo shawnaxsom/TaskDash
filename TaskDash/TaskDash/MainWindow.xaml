@@ -69,6 +69,7 @@
 
                 <Label>Description:</Label>
                 <TextBox x:Name="textBoxDescription" DockPanel.Dock="Left" Width="Auto" MinWidth="200" MaxWidth="300" Text="{Binding Path=Description}"></TextBox>
+                <Button x:Name="buttonIssueTrackerSearch" Click="buttonIssueTrackerSearch_Click" Content="Search Jira" />
 
                 <Label>Tags:</Label>
                 <TextBox x:Name="textBoxTags" DockPanel.Dock="Left" Width="Auto" MinWidth="300" Text="{Binding Path=Tags}"></TextBox>
