@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using TaskDash.Core.Models.Sorting;
 using TaskDash.Core.Models.Tasks;
 using TaskDash.ViewModels;
 
-namespace TaskDash.Windows.Main
+namespace TaskDash.UserControls
 {
     public class TaskListViewModel : ViewModelBase<TaskListViewModel>
     {
@@ -26,7 +22,7 @@ namespace TaskDash.Windows.Main
                 view.CommitNew();
             }
 
-            TaskComparer sorter = (TaskComparer)SortBy ?? TaskComparer.Default;
+            TaskComparer sorter = SortBy ?? TaskComparer.Default;
 
             if (sorter.MainMethod != TaskComparer.TaskComparingMethod.None)
             {

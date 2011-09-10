@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using TaskDash.Core.Models.Sorting;
 using TaskDash.Core.Models.Tasks;
 
-namespace TaskDash.Windows.Main
+namespace TaskDash.UserControls
 {
     /// <summary>
     /// Interaction logic for TaskListView.xaml

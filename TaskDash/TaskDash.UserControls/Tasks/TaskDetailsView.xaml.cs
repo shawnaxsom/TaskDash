@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TaskDash.CustomControls;
 using TaskDash.Core.Models.Tasks;
-using TaskDash.UserControls.Tasks;
+using TaskDash.UserControls.TaskControls;
 
 namespace TaskDash.UserControls
 {
