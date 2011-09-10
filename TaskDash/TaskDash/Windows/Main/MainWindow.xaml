@@ -1,6 +1,5 @@
 ﻿<Window x:Class="TaskDash.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        xmlns:TaskDashControls="clr-namespace:TaskDash.Controls;assembly=TaskDash.Controls" xmlns:Main="clr-namespace:TaskDash.Windows.Main" Title="TaskDash!" Height="600" Width="1024" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:UserControls="clr-namespace:TaskDash.UserControls;assembly=TaskDash.UserControls" xmlns:Main="clr-namespace:TaskDash.Windows.Main;assembly=TaskDash.UserControls" Title="TaskDash!" Height="600" Width="1024" 
         Closing="OnWindowClosing" Closed="OnWindowClosed"
         KeyDown="OnWindowKeyDown"
         StateChanged="OnStateChanged" IsVisibleChanged="OnIsVisibleChanged">

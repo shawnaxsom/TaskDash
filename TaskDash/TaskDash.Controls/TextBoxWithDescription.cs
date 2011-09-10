@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace TaskDash.Controls
+namespace TaskDash.CustomControls
 {
     [TemplatePart(Name = "Text", Type = typeof (TextBox))]
     [TemplatePart(Name = "LabelText", Type = typeof (TextBlock))]

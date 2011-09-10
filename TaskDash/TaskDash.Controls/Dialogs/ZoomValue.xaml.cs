@@ -6,7 +6,7 @@ using System.Windows.Input;
 using TaskDash.Core;
 using TaskDash.Core.Models.Tasks;
 
-namespace TaskDash.Controls
+namespace TaskDash.CustomControls
 {
     /// <summary>
     /// Interaction logic for TaskItem.xaml

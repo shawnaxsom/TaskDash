@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -11,10 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TaskDash.Controls;
+using TaskDash.CustomControls;
 using TaskDash.Core.Models.Tasks;
+using TaskDash.UserControls.Tasks;
 
-namespace TaskDash.Windows.Main
+namespace TaskDash.UserControls
 {
     /// <summary>
     /// Interaction logic for TaskDetailsView.xaml
@@ -29,6 +31,9 @@ namespace TaskDash.Windows.Main
 
         private static readonly DependencyProperty CurrentTaskProperty = DependencyProperty.Register(
             "CurrentTask", typeof(Task), typeof(TaskDetailsView), new PropertyMetadata(null));
+
+        private TaskDetailsViewModel _viewModel;
+
         public Task CurrentTask
         {
             get { return (Task) GetValue(CurrentTaskProperty); }
@@ -59,6 +64,11 @@ namespace TaskDash.Windows.Main
             }
         }
 
+        private void OnCheckBoxItemsCompletedFilterChecked(object sender, RoutedEventArgs e)
+        {
+            _viewModel.RefreshItems();
+        }
+
         private void OnButtonResetClick(object sender, RoutedEventArgs e)
         {
             var task = CurrentTask;
@@ -70,12 +80,33 @@ namespace TaskDash.Windows.Main
 
         private void TextBoxWithDescriptionControlFocused(object sender, RoutedEventArgs e)
         {
-            if (DockingState == MainWindow.WindowDockingState.AddingDockingControls)
-            {
-                var source = (TextBoxWithDescription)e.Source;
+            // TODO: Add this capability back in
+            //if (DockingState == MainWindow.WindowDockingState.AddingDockingControls)
+            //{
+            //    var source = (TextBoxWithDescription)e.Source;
 
-                _dockWindow.AddControl(source);
-            }
+            //    _dockWindow.AddControl(source);
+            //}
         }
+
+        private void OnComboBoxLogTagsFilterSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnButtonIssueTrackerClick(object sender, RoutedEventArgs e)
+        {
+            _viewModel.OpenIssueTracker();
+        }
+
+        
+
+
+        private void OnButtonIssueTrackerSearchClick(object sender, RoutedEventArgs e)
+        {
+            _viewModel.FindInIssueTracker();
+        }
+        
+
     }
 }

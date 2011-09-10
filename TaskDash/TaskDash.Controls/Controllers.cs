@@ -3,11 +3,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using TaskDash.Controls.ExtensionMethods;
+using TaskDash.CustomControls.ExtensionMethods;
 using TaskDash.Core;
 using TaskDash.Core.Models.Tasks;
 
-namespace TaskDash.Controls
+namespace TaskDash.CustomControls
 {
 // ReSharper disable UnusedMember.Global
     public partial class Controllers

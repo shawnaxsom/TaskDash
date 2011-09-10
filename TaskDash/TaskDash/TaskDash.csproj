@@ -82,13 +82,6 @@
     <Compile Include="Windows\EditTaskItem.xaml.cs">
       <DependentUpon>EditTaskItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Main\TaskDetailsView.xaml.cs">
-      <DependentUpon>TaskDetailsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Main\TaskListView.xaml.cs">
-      <DependentUpon>TaskListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Main\TaskListViewModel.cs" />
     <Page Include="Windows\DockWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,14 +112,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Notifications\NotificationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Main\TaskDetailsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Main\TaskListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,13 +151,17 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TaskDash.Controls\TaskDash.Controls.csproj">
+    <ProjectReference Include="..\TaskDash.Controls\TaskDash.CustomControls.csproj">
       <Project>{DAA9F4FA-D025-45B1-ACED-0457A7C2583D}</Project>
-      <Name>TaskDash.Controls</Name>
+      <Name>TaskDash.CustomControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\TaskDash.Core\TaskDash.Core.csproj">
       <Project>{D4C3C926-0F0A-48B4-930A-BEA449B96286}</Project>
       <Name>TaskDash.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskDash.UserControls\TaskDash.UserControls.csproj">
+      <Project>{51CDE9C3-8CF2-4AF0-A03B-98D279B933DE}</Project>
+      <Name>TaskDash.UserControls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,11 +8,11 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
-using TaskDash.Controls.ExtensionMethods;
+using TaskDash.CustomControls.ExtensionMethods;
 using TaskDash.Core;
 using TaskDash.Core.Models.Tasks;
 
-namespace TaskDash.Controls
+namespace TaskDash.CustomControls
 {
     [TemplatePart(Name = "MyListBox", Type = typeof(ListBox))]
     public class ListBoxWithAddRemove : Control

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 
-namespace TaskDash.Controls
+namespace TaskDash.CustomControls
 {
     /// <summary>
     /// Interaction logic for ListBoxLinks.xaml
@@ -26,7 +26,7 @@ namespace TaskDash.Controls
 
         private void OnListBoxTasksSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _parentWindow.OnListBoxTasksSelectionChanged(sender, e);
+            //_parentWindow.OnListBoxTasksSelectionChanged(sender, e);
         }
     }
 }

@@ -10,8 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using TaskDash.Controls;
-using TaskDash.Core.Models.Sorting;
+using TaskDash.CustomControls;
 using TaskDash.Core.Models.Tasks;
 using TaskDash.Core.Services;
 using TaskDash.Notifications;
@@ -27,16 +26,27 @@ namespace TaskDash
     /// </summary>
     public partial class MainWindow : Window, IMainWindow, IDisposable
     {
+        #region WindowDockingState enum
+
+        public enum WindowDockingState
+        {
+            Normal,
+            AddingDockingControls,
+            Docked
+        }
+
+        #endregion
+
+        private readonly ClipboardMonitorService _clipboardMonitor;
+        private readonly List<Control> _controlCycle;
+
         private readonly NotificationManager _notificationManager;
+        private readonly SaveService _saveService;
         private readonly TaskViewModel _tasks;
+        private DockWindow _dockWindow;
+        private bool _docking;
         private NotifyIcon _notifyIcon;
         private WindowState _storedWindowState = WindowState.Normal;
-        private List<Control> _controlCycle;
-
-        private readonly SaveService _saveService;
-        private ClipboardMonitorService _clipboardMonitor;
-        private bool _docking;
-        private DockWindow _dockWindow;
 
         static MainWindow()
         {
@@ -57,9 +67,9 @@ namespace TaskDash
 
             _tasks = new TaskViewModel();
 
-            
+
             _clipboardMonitor = new ClipboardMonitorService();
-            _clipboardMonitor.ClipboardData += new RoutedEventHandler(_clipboardMonitor_ClipboardData);
+            _clipboardMonitor.ClipboardData += _clipboardMonitor_ClipboardData;
 
             DataContext = _tasks;
 
@@ -75,32 +85,79 @@ namespace TaskDash
 
             _controlCycle = new List<Control>
                                 {
-                                    listBoxTasks, 
-                                    listBoxItems, 
+                                    listBoxTasks,
+                                    listBoxItems,
                                     listBoxLogs
                                 };
         }
+
+        public static MainWindow Instance { get; private set; }
+
+        /// <summary>
+        /// Checks if focused control is a text box.
+        /// This includes text boxes in user controls.
+        /// </summary>
+        public bool IsEditing
+        {
+            get
+            {
+                Type type = Keyboard.FocusedElement.GetType();
+
+                return type == typeof (TextBox);
+            }
+        }
+
+        public Task SelectedTask
+        {
+            get { return (Task) listBoxTasks.SelectedItem; }
+        }
+
+        public WindowDockingState DockingState
+        {
+            get
+            {
+                if (_dockWindow != null)
+                {
+                    if (WindowState == WindowState.Normal
+                        || WindowState == WindowState.Maximized)
+                    {
+                        return WindowDockingState.AddingDockingControls;
+                    }
+                    else
+                    {
+                        return WindowDockingState.Docked;
+                    }
+                }
+                else
+                {
+                    return WindowDockingState.Normal;
+                }
+            }
+        }
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            if (_notifyIcon != null)
+            {
+                _notifyIcon.Visible = false;
+                _notifyIcon.Dispose();
+                _notifyIcon = null;
+            }
+        }
+
+        #endregion
+
+        #region IMainWindow Members
+
+        
+        #endregion
 
         private void SetParentWindow()
         {
             listBoxTasks.ParentWindow = this;
         }
-
-        void _clipboardMonitor_ClipboardData(object sender, RoutedEventArgs e)
-        {
-            e.Handled = true;
-
-
-            Task task = SelectedTask;
-
-            if (task == null) return;
-
-            task.HandleClipboardData(_clipboardMonitor);
-        }
-
-        public static MainWindow Instance { get; private set; }
-
-        
 
         
 
@@ -113,6 +170,7 @@ namespace TaskDash
             _saveService.Save();
         }
 
+        #region Event Handlers
         private void OnSaveButtonClick(object sender, RoutedEventArgs e)
         {
             Save();
@@ -123,7 +181,6 @@ namespace TaskDash
             Save();
         }
 
-        
 
         private void OnWindowKeyDown(object sender, KeyEventArgs e)
         {
@@ -144,13 +201,12 @@ namespace TaskDash
                 {
                     if (listBoxTasks.ChildHasFocus)
                     {
-                        this.WindowState = WindowState.Minimized;
+                        WindowState = WindowState.Minimized;
                     }
                     else
                     {
                         listBoxTasks.Focus();
                     }
-
                 }
                 else if (e.Key == Key.T)
                 {
@@ -163,53 +219,72 @@ namespace TaskDash
                 else if (e.Key == Key.L)
                 {
                     AddItemOrFocus(listBoxLogs);
-                    if (!this.IsEditing
+                    if (!IsEditing
                         && (!Keyboard.IsKeyDown(Key.LeftShift)
                             && !Keyboard.IsKeyDown(Key.RightShift)))
                     {
                         textBoxLogEntry.Focus();
                     }
                 }
-                else if (!this.IsEditing
-                        && e.Key == Key.Oem2) // Forward Slash
+                else if (!IsEditing
+                         && e.Key == Key.Oem2) // Forward Slash
                 {
                     textBoxSearch.Focus();
                 }
-                else if (!this.IsEditing
-                        && (e.Key == Key.N))
+                else if (!IsEditing
+                         && (e.Key == Key.N))
                 {
                     Cycle(1);
                 }
-                else if (!this.IsEditing
-                        && (e.Key == Key.P))
+                else if (!IsEditing
+                         && (e.Key == Key.P))
                 {
                     Cycle(-1);
                 }
-                else if (!this.IsEditing
-                        && (e.Key == Key.F5))
+                else if (!IsEditing
+                         && (e.Key == Key.F5))
                 {
                     Refresh();
                 }
             }
         }
 
+        private void OnStateChanged(object sender, EventArgs args)
+        {
+            if (WindowState == WindowState.Minimized)
+            {
+                //Hide();
+            }
+            else
+            {
+                _storedWindowState = WindowState;
+            }
+        }
+
+        private void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            //CheckTrayIcon();
+        }
+
+        #endregion
+
         private void Refresh()
         {
-            Search();
+            //Search();
 
             //RefreshTaskBindings();
         }
 
         private void Cycle(int indexChange)
         {
-            Control control = (Control) Keyboard.FocusedElement;
+            var control = (Control) Keyboard.FocusedElement;
             //Control parentControl = (Control) control.Template.VisualTree.;
             //VirtualizingStackPanel parentControl = (VirtualizingStackPanel)VisualTreeHelper.GetParentVisualTreeHelper.GetParent(VisualTreeHelper.GetParent(VisualTreeHelper.GetParent(control)));
 
-            var parentControl = VisualTreeHelper.GetParent(control);
+            DependencyObject parentControl = VisualTreeHelper.GetParent(control);
 
             while (parentControl != null
-                && parentControl.GetType() != typeof(ListBoxWithAddRemove))
+                   && parentControl.GetType() != typeof (ListBoxWithAddRemove))
             {
                 parentControl = VisualTreeHelper.GetParent(parentControl);
             }
@@ -238,7 +313,7 @@ namespace TaskDash
 
         private void AddItemOrFocus(ListBoxWithAddRemove listBox)
         {
-            if (!this.IsEditing)
+            if (!IsEditing)
             {
                 if (Keyboard.IsKeyDown(Key.LeftShift)
                     || Keyboard.IsKeyDown(Key.RightShift))
@@ -250,33 +325,6 @@ namespace TaskDash
                     listBox.SimulateClick(listBox.AddButton);
                 }
             }
-        }
-
-        /// <summary>
-        /// Checks if focused control is a text box.
-        /// This includes text boxes in user controls.
-        /// </summary>
-        public bool IsEditing
-        {
-            get
-            {
-                Type type = Keyboard.FocusedElement.GetType();
-
-                return type == typeof(TextBox);
-            }
-        }
-
-
-        private void LoadTrayIcon()
-        {
-            _notifyIcon = new NotifyIcon
-                              {
-                                  BalloonTipTitle = Properties.Resources.MainWindow_LoadTrayIcon_TaskDash_,
-                                  Text = Properties.Resources.MainWindow_LoadTrayIcon_TaskDash_,
-                                  Icon = new Icon(@"C:\Users\Shawn.Axsom\Desktop\TaskDash.ico")
-                              };
-
-            _notifyIcon.Click += OnNotifyIconClick;
         }
 
         private void OnNotifyIconClick(object sender, EventArgs e)
@@ -295,23 +343,7 @@ namespace TaskDash
             }
         }
 
-        private void OnStateChanged(object sender, EventArgs args)
-        {
-            if (WindowState == WindowState.Minimized)
-            {
-                //Hide();
-            }
-            else
-            {
-                _storedWindowState = WindowState;
-            }
-        }
-
-        private void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs args)
-        {
-            //CheckTrayIcon();
-        }
-
+        
         private void CheckTrayIcon()
         {
             ShowTrayIcon(!IsVisible);
@@ -330,9 +362,9 @@ namespace TaskDash
 
         private void ShowEditTaskItemDialog()
         {
-            var task = SelectedTask;
+            Task task = SelectedTask;
             var listBox = listBoxItems;
-            var item = (TaskItem)listBox.SelectedItem;
+            var item = (TaskItem) listBox.SelectedItem;
 
             var editTaskItem = new EditTaskItem(task.FilteredItems.View, item);
             editTaskItem.Show();
@@ -340,14 +372,14 @@ namespace TaskDash
 
         private void RefreshTaskBindings()
         {
-            var task = SelectedTask;
+            Task task = SelectedTask;
             if (task != null)
             {
                 // TODO: I shouldn't have to do this. 
                 // TODO: How do I do ItemsSource="{Binding Links}" but have ADD button be able to get the Links collection rather than the Tasks collection?
                 DataContext = task;
-                
-                var phrasesView = (ListCollectionView)task.FilteredPhrases.View;
+
+                var phrasesView = (ListCollectionView) task.FilteredPhrases.View;
                 if (phrasesView.IsAddingNew)
                 {
                     phrasesView.CommitNew();
@@ -355,7 +387,7 @@ namespace TaskDash
                 phrasesView.SortDescriptions.Add(new SortDescription("Occurances", ListSortDirection.Descending));
                 listBoxPhrases.DataContext = task.FilteredPhrases;
 
-                var wordsView = (ListCollectionView)task.FilteredWords.View;
+                var wordsView = (ListCollectionView) task.FilteredWords.View;
                 if (wordsView.IsAddingNew)
                 {
                     wordsView.CommitNew();
@@ -363,7 +395,7 @@ namespace TaskDash
                 wordsView.SortDescriptions.Add(new SortDescription("Occurances", ListSortDirection.Descending));
                 listBoxWords.DataContext = task.FilteredWords;
 
-                var linksView = (ListCollectionView)task.FilteredLinks.View;
+                var linksView = (ListCollectionView) task.FilteredLinks.View;
                 if (linksView.IsAddingNew)
                 {
                     linksView.CommitNew();
@@ -371,7 +403,7 @@ namespace TaskDash
                 linksView.SortDescriptions.Add(new SortDescription("Occurances", ListSortDirection.Descending));
                 listBoxLinks.DataContext = task.FilteredLinks;
 
-                var logsview = (ListCollectionView)task.FilteredLogs.View;
+                var logsview = (ListCollectionView) task.FilteredLogs.View;
                 if (logsview.IsAddingNew)
                 {
                     logsview.CommitNew();
@@ -382,7 +414,7 @@ namespace TaskDash
                 task.Logs.RefreshLogTagList();
                 comboBoxLogTagsFilter.DataContext = task.Logs;
 
-                linksView = (ListCollectionView)task.FilteredItems.View;
+                linksView = (ListCollectionView) task.FilteredItems.View;
                 if (linksView.IsAddingNew)
                 {
                     linksView.CommitNew();
@@ -392,55 +424,25 @@ namespace TaskDash
             }
         }
 
-        void OnFilteredItemsFilter(object sender, FilterEventArgs e)
-        {
-            e.Accepted = false;
-            var taskItem = (TaskItem)e.Item;
-            bool? showCompleted = checkBoxItemsCompletedFilter.IsChecked;
-
-            string search = textBoxSearch.Text;
-            string tag = (comboBoxTagsFilter.SelectedValue == null ? "" : comboBoxTagsFilter.SelectedValue.ToString());
-
-
-            if (taskItem.Completed == showCompleted)
-            {
-                e.Accepted = true;
-            }
-        }
-
         
-
-
-        private static void UpdatedSelected(SelectionChangedEventArgs e)
-        {
-            // This happens to modify the stopwatch
-            // TODO: Is there any way to make this a binding instead of an event update?
-            foreach (Task task in e.AddedItems)
-            {
-                task.Selected = true;
-            }
-
-            foreach (Task task in e.RemovedItems)
-            {
-                task.Selected = false;
-            }
-        }
 
         private void OnListBoxLogsSelectionChanged(object sender, RoutedEventArgs e)
         {
-            var log = (Log)listBoxLogs.SelectedItem;
+            var log = (Log) listBoxLogs.SelectedItem;
             textBoxLogTags.DataContext = log;
             textBoxLogEntry.DataContext = log;
         }
 
-        private void OnComboBoxTagsFilterSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void AddDefaultDockingControls()
         {
-            RefreshLogs();
-        }
+            if (_dockWindow == null) return;
 
-        public Task SelectedTask
-        {
-            get { return (Task) listBoxTasks.SelectedItem; }
+
+            _dockWindow.AddControl(textBoxNextSteps);
+            _dockWindow.AddControl(listBoxItems);
+            _dockWindow.AddControl(listBoxLogs);
+            _dockWindow.AddControl(textBoxLogEntry);
+            _dockWindow.AddControl(listBoxLinks);
         }
 
         private void OnAccordianButtonClick(object sender, RoutedEventArgs e)
@@ -458,7 +460,7 @@ namespace TaskDash
                                   {
                                       WindowStartupLocation = WindowStartupLocation.Manual,
                                       Top = 0,
-                                      Height = SystemParameters.PrimaryScreenHeight-30
+                                      Height = SystemParameters.PrimaryScreenHeight - 30
                                   };
                 _dockWindow.Left = SystemParameters.PrimaryScreenWidth - _dockWindow.Width;
                 _dockWindow.Show();
@@ -474,56 +476,9 @@ namespace TaskDash
             }
         }
 
-        private void AddDefaultDockingControls()
-        {
-            if (_dockWindow == null) return;
-
-
-            _dockWindow.AddControl(textBoxNextSteps);
-            _dockWindow.AddControl(listBoxItems);
-            _dockWindow.AddControl(listBoxLogs);
-            _dockWindow.AddControl(textBoxLogEntry);
-            _dockWindow.AddControl(listBoxLinks);
-        }
-
-        void _dockWindow_Closed(object sender, EventArgs e)
+        private void _dockWindow_Closed(object sender, EventArgs e)
         {
             _dockWindow = null;
-        }
-
-        private void OnCheckBoxItemsCompletedFilterChecked(object sender, RoutedEventArgs e)
-        {
-            RefreshItems();
-        }
-
-        private void RefreshItems()
-        {
-            if (_tasks == null) return;
-
-            var task = SelectedTask;
-            if (task == null) return;
-
-
-            var view = (ListCollectionView)task.FilteredItems.View;
-
-            // Search
-            view.Refresh();
-
-            //SelectFirstTask();
-        }
-
-        private void RefreshLogs()
-        {
-            if (_tasks == null) return;
-
-            var task = SelectedTask;
-            if (task == null) return;
-
-
-            var view = (ListCollectionView)task.FilteredLogs.View;
-
-            // Search
-            view.Refresh();
         }
 
         private void OnListBoxTasksKeyDown(object sender, KeyEventArgs e)
@@ -552,6 +507,11 @@ namespace TaskDash
             }
         }
 
+        private void OnWindowClosed(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
         private void ListBoxWithAddRemoveMouseDown(object sender, RoutedEventArgs e)
         {
             if (DockingState == WindowDockingState.AddingDockingControls)
@@ -562,40 +522,11 @@ namespace TaskDash
             }
         }
 
-        public enum WindowDockingState
-        {
-            Normal,
-            AddingDockingControls,
-            Docked
-        }
-        public WindowDockingState DockingState
-        {
-            get
-            {
-                if (_dockWindow != null)
-                {
-                    if (WindowState == System.Windows.WindowState.Normal
-                        || WindowState == System.Windows.WindowState.Maximized)
-                    {
-                        return WindowDockingState.AddingDockingControls;
-                    }
-                    else
-                    {
-                        return WindowDockingState.Docked;
-                    }
-                }
-                else
-                {
-                    return WindowDockingState.Normal;
-                }
-            }
-        }
-
         private void ListBoxWithAddRemoveControlFocused(object sender, RoutedEventArgs e)
         {
             if (DockingState == WindowDockingState.AddingDockingControls)
             {
-                var source = (ListBoxWithAddRemove)e.Source;
+                var source = (ListBoxWithAddRemove) e.Source;
 
                 _dockWindow.AddControl(source);
             }
@@ -603,65 +534,9 @@ namespace TaskDash
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
-        private void buttonIssueTracker_Click(object sender, RoutedEventArgs e)
-        {
-            OpenIssueTracker();
-        }
-
-        private void buttonIssueTrackerSearch_Click(object sender, RoutedEventArgs e)
-        {
-            FindInIssueTracker();
-        }
-
-        public void OpenIssueTracker()
-        {
-            Process.Start("http://devjira/browse/" + SelectedTask.Key);
-        }
-
-        private void FindInIssueTracker()
-        {
-            const string OR = "+OR+";
-            const string LIKE = "+~+";
-            const string options = "&reset=true&tempMax=10";
-
-
-            string page = @"http://devjira/secure/IssueNavigator.jspa?reset=true&jqlQuery=";
-            string[] queryWords = SelectedTask.Description.Split(' ');
-            string jqlQueryTerms = @"'" + String.Join("+", queryWords) + @"'";
-
-            // I found out the syntax to this by doing a search, then doing Views -> Full Content. URL has querystrings
-            // E.g. http://devjira-prod/secure/IssueNavigator.jspa?reset=true&jqlQuery=summary+~+"test+this+out"+OR+description+~+"test+this+out"+OR+comment+~+"test+this+out"+OR+environment+~+"test+this+out"&tempMax=1000&tempMax=1000
-            string jqlQuery = 
-                "summary" + LIKE + jqlQueryTerms
-                + OR + "description" + LIKE + jqlQueryTerms
-                //+ OR + "comment" + LIKE + jqlQueryTerms       // This is SLOW
-                ;
-
-
-            string queryUrl = page + jqlQuery + options;
-            Process.Start(queryUrl);
-        }
-
-
-        public void Dispose()
-        {
-            if (_notifyIcon != null)
-            {
-                _notifyIcon.Visible = false;
-                _notifyIcon.Dispose();
-                _notifyIcon = null;
-            }
-        }
-
-        private void OnWindowClosed(object sender, EventArgs e)
-        {
-            Dispose();
-        }
-
-
+        
 
         internal void SelectTask(Task Task)
         {

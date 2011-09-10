@@ -8,7 +8,7 @@ using System.Windows.Input;
 using System.Collections.Generic;
 
 
-namespace TaskDash.Controls.ExtensionMethods
+namespace TaskDash.CustomControls.ExtensionMethods
 {
     public static class ControlExtensionMethods
     {

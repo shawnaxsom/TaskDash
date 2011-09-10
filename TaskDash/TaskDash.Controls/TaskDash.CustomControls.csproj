@@ -8,8 +8,8 @@
     <ProjectGuid>{DAA9F4FA-D025-45B1-ACED-0457A7C2583D}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TaskDash.Controls</RootNamespace>
-    <AssemblyName>TaskDash.Controls</AssemblyName>
+    <RootNamespace>TaskDash.CustomControls</RootNamespace>
+    <AssemblyName>TaskDash.CustomControls</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>

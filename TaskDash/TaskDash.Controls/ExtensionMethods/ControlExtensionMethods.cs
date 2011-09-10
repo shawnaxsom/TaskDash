@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 
-namespace TaskDash.Controls.ExtensionMethods
+namespace TaskDash.CustomControls.ExtensionMethods
 {
     public static class ControlExtensionMethods
     {

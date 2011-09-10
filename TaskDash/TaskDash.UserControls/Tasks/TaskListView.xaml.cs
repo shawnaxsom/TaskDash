@@ -27,20 +27,25 @@ namespace TaskDash.Windows.Main
         {
             InitializeComponent();
 
-            listBoxTasks.DataContext = _tasks.FilteredTasks; // TODO: Is there any way to bind this behind the scenes?
-            comboBoxTagsFilter.DataContext = _tasks.Tasks.TagList;
+            listBoxTasks.DataContext = _viewModel.FilteredTasks; // TODO: Is there any way to bind this behind the scenes?
+            comboBoxTagsFilter.DataContext = _viewModel.Tasks.TagList;
             comboBoxSortBy.DataContext = TaskComparer.Instance;
 
-            _tasks.FilteredTasks.Filter += OnFilteredTasksFilter;
+            _viewModel.FilteredTasks.Filter += OnFilteredTasksFilter;
+        }
+
+        private void OnComboBoxTagsFilterSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         private void OnTextBoxSearchKeyUp(object sender, KeyEventArgs e)
         {
-            _viewModel._viewModel.Search();
+            _viewModel.Search();
 
             if (e.Key == Key.Enter)
             {
-                SelectFirstTask();
+                _viewModel.SelectFirstTask();
             }
         }
 
@@ -61,9 +66,24 @@ namespace TaskDash.Windows.Main
 
         public void OnListBoxTasksSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            RefreshTaskBindings();
+            //RefreshTaskBindings();
 
             UpdatedSelected(e);
+        }
+
+        private static void UpdatedSelected(SelectionChangedEventArgs e)
+        {
+            // This happens to modify the stopwatch
+            // TODO: Is there any way to make this a binding instead of an event update?
+            foreach (Task task in e.AddedItems)
+            {
+                task.Selected = true;
+            }
+
+            foreach (Task task in e.RemovedItems)
+            {
+                task.Selected = false;
+            }
         }
 
         private void OnCheckBoxSomedayFilterChecked(object sender, RoutedEventArgs e)
@@ -97,32 +117,14 @@ namespace TaskDash.Windows.Main
         {
             if (e.Key == Key.Enter)
             {
-                SelectFirstTask();
+                _viewModel.SelectFirstTask();
             }
         }
 
         private void OnListBoxTasksLoaded(object sender, RoutedEventArgs e)
         {
-            SelectFirstTask();
-            textBoxKey.Focus();
-        }
-
-        private void SelectFirstTask()
-        {
-            if (listBoxTasks.Items.Count > 0)
-            {
-                ListBoxItem item = listBoxTasks.GetFirstListBoxItemFromListBox();
-                // Force refresh of selection. 
-                // Otherwise the program starts up without anything selected.
-                item.IsSelected = false;
-                item.IsSelected = true;
-                item.Focus();
-            }
-            else
-            {
-                listBoxTasks.SelectedItem = null;
-                DataContext = null;
-            }
+            _viewModel.SelectFirstTask();
+            //textBoxKey.Focus();
         }
     }
 }

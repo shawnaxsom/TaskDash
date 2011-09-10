@@ -3,7 +3,7 @@ using System.Windows.Input;
 using TaskDash.Core.Models.Tasks;
 using TaskDash;
 
-namespace TaskDash.Controls
+namespace TaskDash.CustomControls
 {
     /// <summary>
     /// Interaction logic for ListBoxLinks.xaml

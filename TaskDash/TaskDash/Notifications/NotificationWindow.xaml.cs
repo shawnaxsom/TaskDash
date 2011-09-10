@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
-using TaskDash.Controls.ExtensionMethods;
+using TaskDash.CustomControls.ExtensionMethods;
 
 namespace TaskDash.Notifications
 {

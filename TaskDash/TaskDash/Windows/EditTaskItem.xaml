@@ -1,6 +1,6 @@
 ﻿<Window x:Class="TaskDash.EditTaskItem"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:TaskDashControls="clr-namespace:TaskDash.Controls;assembly=TaskDash.Controls" Title="Edit Task Item" Height="401" Width="489"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:TaskDashControls="clr-namespace:TaskDash.CustomControls;assembly=TaskDash.CustomControls" Title="Edit Task Item" Height="401" Width="489"
         KeyDown="Window_KeyDown">
     <Grid>
         <Grid.ColumnDefinitions >

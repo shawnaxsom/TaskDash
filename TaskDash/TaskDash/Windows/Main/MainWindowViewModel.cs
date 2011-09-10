@@ -24,6 +24,30 @@ namespace TaskDash
             _autoLogger.Start();
         }
 
+        private void LoadTrayIcon()
+        {
+            _notifyIcon = new NotifyIcon
+            {
+                BalloonTipTitle = Properties.Resources.MainWindow_LoadTrayIcon_TaskDash_,
+                Text = Properties.Resources.MainWindow_LoadTrayIcon_TaskDash_,
+                Icon = new Icon(@"C:\Users\Shawn.Axsom\Desktop\TaskDash.ico")
+            };
+
+            _notifyIcon.Click += OnNotifyIconClick;
+        }
+
+        private void _clipboardMonitor_ClipboardData(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+
+
+            Task task = SelectedTask;
+
+            if (task == null) return;
+
+            task.HandleClipboardData(_clipboardMonitor);
+        }
+
         private void _autoLogger_LoggingRequested(object sender, LoggingRequestedEventHandlerArgs args)
         {
             //TODO: CurrentTask is always null
@@ -54,30 +78,9 @@ namespace TaskDash
             get { return (Task) GetValue(CurrentTaskProperty); }
             set { SetValue(CurrentTaskProperty, value); }
         }
-
-        public CollectionViewSource FilteredTasks { get; set; }
-        private Tasks _tasks;
+        
         private AutoLogger _autoLogger;
 
-        public Tasks Tasks
-        {
-            get { return _tasks; }
-            private set
-            {
-                _tasks = value;
-                i = 0;
-            }
-        }
-
-        private void AddNewTask()
-        {
-            Tasks.Add(new Task() { _Id = i.ToString() });
-            i++;
-        }
-
-        public void Save()
-        {
-            Tasks.Save();
-        }
+        
     }
 }
