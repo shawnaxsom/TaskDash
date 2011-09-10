@@ -20,9 +20,9 @@
             <CheckBox x:Name="checkBoxSomedayFilter" DockPanel.Dock="Top" Checked="OnCheckBoxSomedayFilterChecked" Unchecked="OnCheckBoxSomedayFilterChecked">Someday</CheckBox>
             <CheckBox x:Name="checkBoxCompletedFilter" DockPanel.Dock="Top" Checked="OnCheckBoxCompletedFilterChecked" Unchecked="OnCheckBoxCompletedFilterChecked">Completed</CheckBox>
 
-            <!--<TaskDashControls:ListBoxTasks x:Name="listBoxTasks" ControlFocused="ListBoxWithAddRemoveControlFocused" DockPanel.Dock="Top" ItemsSource="{Binding Path=Task, Mode=TwoWay}" KeyDown="OnListBoxTasksKeyDown" SelectionChanged="OnListBoxTasksSelectionChanged" Loaded="OnListBoxTasksLoaded" />-->
-            <CustomControls:ListBoxTasks x:Name="listBoxTasks" ControlFocused="ListBoxWithAddRemoveControlFocused" DockPanel.Dock="Top" 
-                ItemsSource="{Binding Path=Task, Mode=TwoWay}" KeyDown="OnListBoxTasksKeyDown" SelectionChanged="OnListBoxTasksSelectionChanged" Loaded="OnListBoxTasksLoaded" />
+            <!--<TaskDashControls:ListBoxTasks x:Name="listBoxTasks"  DockPanel.Dock="Top" ItemsSource="{Binding Path=Task, Mode=TwoWay}" KeyDown="OnListBoxTasksKeyDown" SelectionChanged="OnListBoxTasksSelectionChanged" Loaded="OnListBoxTasksLoaded" />-->
+            <CustomControls:ListBoxTasks x:Name="listBoxTasks"  DockPanel.Dock="Top" 
+                ItemsSource="{Binding Path=Task, Mode=TwoWay}" SelectionChanged="OnListBoxTasksSelectionChanged" Loaded="OnListBoxTasksLoaded" />
         </DockPanel>
     </Grid>
 </UserControl>

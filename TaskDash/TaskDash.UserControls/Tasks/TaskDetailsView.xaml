@@ -73,8 +73,7 @@
                     <ComboBox x:Name="comboBoxLogTagsFilter" DockPanel.Dock="Right" ItemsSource="{Binding Path=LogTagList}" DisplayMemberPath="TagName" SelectionChanged="OnComboBoxLogTagsFilterSelectionChanged" />
                 </DockPanel>
 
-                <CustomControls:ListBoxWithAddRemove x:Name="listBoxLogs" LabelText="Logs"  ControlFocused="ListBoxWithAddRemoveControlFocused" ItemsSource="{Binding}" DisplayMemberPath="EntryDate" Width="150" SelectionChanged="OnListBoxLogsSelectionChanged"
-                KeyDown="OnListBoxLogsKeyDown" />
+                <CustomControls:ListBoxWithAddRemove x:Name="listBoxLogs" LabelText="Logs"   ItemsSource="{Binding}" DisplayMemberPath="EntryDate" Width="150" />
 
                 <DockPanel VerticalAlignment="Stretch" DockPanel.Dock="Left">
                     <Label>Tags:</Label>
@@ -90,17 +89,15 @@
                 <CustomControls:TextBoxWithDescription x:Name="textBoxNextSteps"  ControlFocused="TextBoxWithDescriptionControlFocused" MaxHeight="200" DockPanel.Dock="Top" Text="{Binding Path=NextSteps, Mode=TwoWay}" LabelText="Next Steps" />
 
                 <CheckBox x:Name="checkBoxItemsCompletedFilter" DockPanel.Dock="Top" Checked="OnCheckBoxItemsCompletedFilterChecked" Unchecked="OnCheckBoxItemsCompletedFilterChecked">Completed</CheckBox>
-                    <CustomControls:ListBoxWithAddRemove LabelText="Don't Forget" DockPanel.Dock="Bottom" ControlFocused="ListBoxWithAddRemoveControlFocused"  x:Name="listBoxItems" 
+                    <CustomControls:ListBoxWithAddRemove LabelText="Don't Forget" DockPanel.Dock="Bottom"   x:Name="listBoxItems" 
                     Grid.Row="0" Grid.Column="3" Grid.RowSpan="3" 
-                    ItemsSource="{Binding Path=EditableValue, Mode=TwoWay}" 
-                    KeyDown="OnListBoxItemsKeyDown"
-                    MouseDoubleClick="EditTaskItemClick" />
+                    ItemsSource="{Binding Path=EditableValue, Mode=TwoWay}" />
             </DockPanel>
 
             <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                <CustomControls:ListBoxLinks x:Name="listBoxLinks" LabelText="Links"  ControlFocused="ListBoxWithAddRemoveControlFocused"  ItemsSource="{Binding Path=URI, Mode=TwoWay}" Width="Auto" DockPanel.Dock="Left" />
-                <CustomControls:ListBoxPhrases x:Name="listBoxPhrases" LabelText="Phrases" ControlFocused="ListBoxWithAddRemoveControlFocused"  ItemsSource="{Binding Path=Text, Mode=TwoWay}" Width="Auto" DockPanel.Dock="Left" />
-                <CustomControls:ListBoxWords x:Name="listBoxWords"  LabelText="Words" ControlFocused="ListBoxWithAddRemoveControlFocused"  ItemsSource="{Binding Path=Text, Mode=TwoWay}" Width="Auto" DockPanel.Dock="Left" />
+                <CustomControls:ListBoxLinks x:Name="listBoxLinks" LabelText="Links"    ItemsSource="{Binding Path=URI, Mode=TwoWay}" Width="Auto" DockPanel.Dock="Left" />
+                <CustomControls:ListBoxPhrases x:Name="listBoxPhrases" LabelText="Phrases"   ItemsSource="{Binding Path=Text, Mode=TwoWay}" Width="Auto" DockPanel.Dock="Left" />
+                <CustomControls:ListBoxWords x:Name="listBoxWords"  LabelText="Words"   ItemsSource="{Binding Path=Text, Mode=TwoWay}" Width="Auto" DockPanel.Dock="Left" />
             </DockPanel>
         </Grid>
     </Border>

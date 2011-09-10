@@ -10,7 +10,7 @@ using TaskDash.ViewModels;
 
 namespace TaskDash.UserControls.TaskControls
 {
-    class TaskDetailsViewModel : ViewModelBase<TaskDetailsViewModel>
+    public class TaskDetailsViewModel : ViewModelBase<TaskDetailsViewModel>
     {
         internal void RefreshItems()
         {

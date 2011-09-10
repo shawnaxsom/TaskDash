@@ -2,6 +2,8 @@
 using System.Windows.Data;
 using TaskDash.Core;
 using TaskDash.Core.Models.Tasks;
+using TaskDash.UserControls;
+using TaskDash.UserControls.TaskControls;
 using TaskDash.ViewModels;
 
 namespace TaskDash
@@ -11,9 +13,12 @@ namespace TaskDash
     /// </summary>
     public class MainWindowViewModel : ViewModelBase<MainWindowViewModel>
     {
+        public TaskListViewModel _viewModelTasks;
+        public TaskDetailsViewModel _viewModelDetails;
+
         public MainWindowViewModel()
         {
-            Tasks = new Task().GetTasks();
+            //Tasks = new Task().GetTasks();
             FilteredTasks = new CollectionViewSource { Source = this.Tasks };
 
             _autoLogger = new AutoLogger()

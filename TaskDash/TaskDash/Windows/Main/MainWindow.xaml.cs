@@ -426,23 +426,24 @@ namespace TaskDash
 
         
 
-        private void OnListBoxLogsSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            var log = (Log) listBoxLogs.SelectedItem;
-            textBoxLogTags.DataContext = log;
-            textBoxLogEntry.DataContext = log;
-        }
+        //private void OnListBoxLogsSelectionChanged(object sender, RoutedEventArgs e)
+        //{
+        //    var log = (Log) listBoxLogs.SelectedItem;
+        //    textBoxLogTags.DataContext = log;
+        //    textBoxLogEntry.DataContext = log;
+        //}
 
         private void AddDefaultDockingControls()
         {
             if (_dockWindow == null) return;
 
 
-            _dockWindow.AddControl(textBoxNextSteps);
-            _dockWindow.AddControl(listBoxItems);
-            _dockWindow.AddControl(listBoxLogs);
-            _dockWindow.AddControl(textBoxLogEntry);
-            _dockWindow.AddControl(listBoxLinks);
+            //_dockWindow.AddControl(textBoxNextSteps);
+            //_dockWindow.AddControl(listBoxItems);
+            //_dockWindow.AddControl(listBoxLogs);
+            //_dockWindow.AddControl(textBoxLogEntry);
+            //_dockWindow.AddControl(listBoxLinks);
+            _dockWindow.AddControls(_viewModel.DefaultDockingControls);
         }
 
         private void OnAccordianButtonClick(object sender, RoutedEventArgs e)
@@ -498,14 +499,14 @@ namespace TaskDash
             }
         }
 
-        private void OnListBoxLogsKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter
-                && !listBoxLogs.IsEditingSelectedItem)
-            {
-                textBoxLogEntry.Focus();
-            }
-        }
+        //private void OnListBoxLogsKeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.Key == Key.Enter
+        //        && !listBoxLogs.IsEditingSelectedItem)
+        //    {
+        //        textBoxLogEntry.Focus();
+        //    }
+        //}
 
         private void OnWindowClosed(object sender, EventArgs e)
         {
@@ -522,15 +523,15 @@ namespace TaskDash
             }
         }
 
-        private void ListBoxWithAddRemoveControlFocused(object sender, RoutedEventArgs e)
-        {
-            if (DockingState == WindowDockingState.AddingDockingControls)
-            {
-                var source = (ListBoxWithAddRemove) e.Source;
+        //private void ListBoxWithAddRemoveControlFocused(object sender, RoutedEventArgs e)
+        //{
+        //    if (DockingState == WindowDockingState.AddingDockingControls)
+        //    {
+        //        var source = (ListBoxWithAddRemove) e.Source;
 
-                _dockWindow.AddControl(source);
-            }
-        }
+        //        _dockWindow.AddControl(source);
+        //    }
+        //}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -539,6 +540,11 @@ namespace TaskDash
         
 
         internal void SelectTask(Task Task)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OpenIssueTracker()
         {
             throw new NotImplementedException();
         }

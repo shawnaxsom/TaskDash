@@ -55,3 +55,10 @@ C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\De
 C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Notifications\NotificationWindow.g.cs
 C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\App.g.cs
 C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash_MarkupCompile.cache
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\bin\Debug\TaskDash.exe.config
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\Main\MainWindow.baml
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\Main\MainWindow.g.cs
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash.g.resources
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash.Properties.Resources.resources
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\GenerateResource.write.1.tlog
