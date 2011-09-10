@@ -42,10 +42,9 @@ namespace TaskDash
 
         private readonly NotificationManager _notificationManager;
         private readonly SaveService _saveService;
-        private readonly TaskViewModel _tasks;
+        private readonly MainWindowViewModel _tasks;
         private DockWindow _dockWindow;
         private bool _docking;
-        private NotifyIcon _notifyIcon;
         private WindowState _storedWindowState = WindowState.Normal;
 
         static MainWindow()
@@ -65,7 +64,7 @@ namespace TaskDash
             LoadTrayIcon();
             ShowTrayIcon(true);
 
-            _tasks = new TaskViewModel();
+            _tasks = new MainWindowViewModel();
 
 
             _clipboardMonitor = new ClipboardMonitorService();
@@ -139,12 +138,12 @@ namespace TaskDash
 
         public void Dispose()
         {
-            if (_notifyIcon != null)
-            {
-                _notifyIcon.Visible = false;
-                _notifyIcon.Dispose();
-                _notifyIcon = null;
-            }
+            //if (_notifyIcon != null)
+            //{
+            //    _notifyIcon.Visible = false;
+            //    _notifyIcon.Dispose();
+            //    _notifyIcon = null;
+            //}
         }
 
         #endregion
@@ -344,16 +343,7 @@ namespace TaskDash
         }
 
         
-        private void CheckTrayIcon()
-        {
-            ShowTrayIcon(!IsVisible);
-        }
-
-        private void ShowTrayIcon(bool show)
-        {
-            if (_notifyIcon != null)
-                _notifyIcon.Visible = show;
-        }
+        
 
         private void EditTaskItemClick(object sender, RoutedEventArgs e)
         {

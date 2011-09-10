@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Drawing;
+using System.Windows;
 using System.Windows.Data;
+using System.Windows.Forms;
 using TaskDash.Core;
 using TaskDash.Core.Models.Tasks;
 using TaskDash.UserControls;
@@ -15,6 +17,7 @@ namespace TaskDash
     {
         public TaskListViewModel _viewModelTasks;
         public TaskDetailsViewModel _viewModelDetails;
+        private NotifyIcon _notifyIcon;
 
         public MainWindowViewModel()
         {
@@ -40,6 +43,8 @@ namespace TaskDash
 
             _notifyIcon.Click += OnNotifyIconClick;
         }
+
+
 
         private void _clipboardMonitor_ClipboardData(object sender, RoutedEventArgs e)
         {

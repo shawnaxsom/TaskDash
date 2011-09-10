@@ -8,14 +8,14 @@ namespace TaskDash.Notifications
 {
     public class NotificationManager
     {
-        private readonly TaskViewModel _taskViewModel;
+        private readonly MainWindowViewModel _MainWindowViewModel;
         private readonly DispatcherTimer _timer;
         private readonly NotificationQueue _notificationQueue;
         private DateTime _lastChecked = DateTime.Now;
 
-        public NotificationManager(TaskViewModel taskViewModel)
+        public NotificationManager(MainWindowViewModel MainWindowViewModel)
         {
-            _taskViewModel = taskViewModel;
+            _MainWindowViewModel = MainWindowViewModel;
 
             _notificationQueue = new NotificationQueue();
 
@@ -37,7 +37,7 @@ namespace TaskDash.Notifications
                 _notificationQueue.Clear();
             }
 
-            foreach (Task task in _taskViewModel.Tasks)
+            foreach (Task task in _MainWindowViewModel.Tasks)
             {
                 if (task.DueDate.Date == DateTime.Today)
                 {

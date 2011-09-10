@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Threading;
+using TaskDash.Core.Models.Tasks;
 using TaskDash.Core.Utilities;
 using TaskDash.ViewModels;
 
@@ -8,9 +9,9 @@ namespace TaskDash.Core.Services
     public class SaveService
     {
         private readonly DispatcherTimer _timer;
-        private readonly TaskViewModel _tasks;
+        private readonly Tasks _tasks;
 
-        public SaveService(TaskViewModel tasks)
+        public SaveService(Tasks tasks)
         {
             _tasks = tasks;
 
