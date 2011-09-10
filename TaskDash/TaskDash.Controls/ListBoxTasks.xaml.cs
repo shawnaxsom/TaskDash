@@ -1,4 +1,7 @@
-﻿namespace TaskDash.Controls
+﻿using System;
+using System.Windows.Controls;
+
+namespace TaskDash.Controls
 {
     /// <summary>
     /// Interaction logic for ListBoxLinks.xaml
@@ -17,8 +20,13 @@
             set
             {
                 _parentWindow = value;
-                this.SelectionChanged += _parentWindow.OnListBoxTasksSelectionChanged;
+                this.SelectionChanged += OnListBoxTasksSelectionChanged;
             }
+        }
+
+        private void OnListBoxTasksSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _parentWindow.OnListBoxTasksSelectionChanged(sender, e);
         }
     }
 }

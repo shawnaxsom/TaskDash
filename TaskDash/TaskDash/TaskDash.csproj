@@ -66,55 +66,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Windows\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AccordianWindow.xaml.cs">
-      <DependentUpon>AccordianWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\DelayTaskCommand.cs" />
     <Compile Include="Commands\ITaskCommand.cs" />
     <Compile Include="Commands\ITaskDashCommand.cs" />
     <Compile Include="Commands\OpenTaskCommand.cs" />
     <Compile Include="Commands\RemoveNotificationCommand.cs" />
-    <Compile Include="DockWindow.xaml.cs">
+    <Compile Include="Windows\DockWindow.xaml.cs">
       <DependentUpon>DockWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditTaskItem.xaml.cs">
+    <Compile Include="Windows\EditTaskItem.xaml.cs">
       <DependentUpon>EditTaskItem.xaml</DependentUpon>
     </Compile>
-    <Page Include="AccordianWindow.xaml">
+    <Compile Include="Windows\Main\TaskDetailsView.xaml.cs">
+      <DependentUpon>TaskDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Main\TaskListView.xaml.cs">
+      <DependentUpon>TaskListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Main\TaskListViewModel.cs" />
+    <Page Include="Windows\DockWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DockWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LoggingRequestDialog.xaml">
+    <Page Include="Windows\LoggingRequestDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Windows\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ExtensionMethods\ControlExtensionMethods.cs" />
-    <Compile Include="LoggingRequestDialog.xaml.cs">
+    <Compile Include="Windows\LoggingRequestDialog.xaml.cs">
       <DependentUpon>LoggingRequestDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoggingRequestDialogViewModel.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\LoggingRequestDialogViewModel.cs" />
+    <Compile Include="Windows\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="EditTaskItem.xaml">
+    <Page Include="Windows\EditTaskItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,9 +122,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Main\TaskDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Main\TaskListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Windows\Main\MainWindowViewModel.cs" />
     <Compile Include="Notifications\Notification.cs" />
     <Compile Include="Notifications\NotificationList.cs" />
     <Compile Include="Notifications\NotificationManager.cs" />

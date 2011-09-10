@@ -76,3 +76,17 @@ C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\bin\Debug\
 C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\bin\Debug\TaskDash.Core.pdb
 C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\bin\Debug\System.Windows.Controls.Layout.Toolkit.pdb
 C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\bin\Debug\WPFToolkit.pdb
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\DockWindow.baml
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\LoggingRequestDialog.baml
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\EditTaskItem.baml
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\Main\TaskListView.baml
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\DockWindow.g.cs
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\LoggingRequestDialog.g.cs
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\Main\MainWindow.g.cs
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\EditTaskItem.g.cs
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\Main\TaskListView.g.cs
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\App.g.cs
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash_MarkupCompile.lref
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\Main\TaskDetailsView.baml
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\Main\TaskDetailsView.g.cs

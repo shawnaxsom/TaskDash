@@ -1,110 +1,11 @@
-﻿<Window x:Class="TaskDash.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        xmlns:TaskDashControls="clr-namespace:TaskDash.Controls;assembly=TaskDash.Controls" 
-        Title="TaskDash!" Height="600" Width="1024" 
-        Closing="OnWindowClosing" Closed="OnWindowClosed"
-        KeyDown="OnWindowKeyDown"
-        StateChanged="OnStateChanged" IsVisibleChanged="OnIsVisibleChanged">
-
-    <Window.Resources>
-        <!--<CollectionViewSource x:Key="SortingMethodsOld">
-            <CollectionViewSource.Source>
-                <col:ArrayList>
-                    <ListBoxItem>Relevance</ListBoxItem>
-                    <ListBoxItem>Total Time</ListBoxItem>
-                </col:ArrayList>
-            </CollectionViewSource.Source>
-        </CollectionViewSource>-->
-        <!--<x:Array x:Key="SortingMethods" Type="sys:String">
-            <sys:String>Relevance</sys:String>
-            <sys:String>Total Time</sys:String>
-        </x:Array>-->
-
-        <!--<ObjectDataProvider MethodName="GetValues"
-                        ObjectType="{x:Type sys:Enum}"
-                        x:Key="SortingValues">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="Sorting:TaskComparer" />
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>-->
-    </Window.Resources>
-
-    <Grid>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="8" />
-            <ColumnDefinition Width="200" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="25" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>-->
-        <!-- http://msdn.microsoft.com/en-us/library/aa970904.aspx -->
-        <!--<Grid.Background>-->
-        <!--<LinearGradientBrush>
-                <LinearGradientBrush.GradientStops>
-                    <GradientStop Color="#8BC" Offset="0" />
-                    <GradientStop Color="#ABd" Offset="0.5" />
-                    <GradientStop Color="#BBB" Offset="1" />
-                </LinearGradientBrush.GradientStops>
-            </LinearGradientBrush>-->
-        <!--<SolidColorBrush Color="#123" />
-        </Grid.Background>-->
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="25" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-
-        <ToolBar Grid.Row="0" Grid.ColumnSpan="5">
-            <Button x:Name="SaveButton" Click="OnSaveButtonClick">Save</Button>
-            <Button x:Name="AccordianButton" Click="OnAccordianButtonClick">Dock</Button>
-        </ToolBar>
-
-
-
-
-
-
-
-        <!-- Search And Tasks -->
-
-        <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3">
-            <Label DockPanel.Dock="Top" Background="#069" Foreground="White" Height="25">Search</Label>
-            <DockPanel HorizontalAlignment="Stretch" DockPanel.Dock="Top">
-                <Label>Filter Tags By:</Label>
-                <ComboBox x:Name="comboBoxTagsFilter" DockPanel.Dock="Right" ItemsSource="{Binding}" DisplayMemberPath="TagName" SelectionChanged="OnComboBoxTagsFilterSelectionChanged" />
-            </DockPanel>
-            <TextBox x:Name="textBoxSearch" DockPanel.Dock="Top" KeyUp="OnTextBoxSearchKeyUp" KeyDown="OnTextBoxSearchKeyDown"></TextBox>
-            <DockPanel HorizontalAlignment="Stretch" DockPanel.Dock="Top">
-                <Label>Sort By:</Label>
-                <ComboBox x:Name="comboBoxSortBy" DockPanel.Dock="Right" ItemsSource="{Binding}" SelectionChanged="OnComboBoxSortBySelectionChanged"></ComboBox>
-            </DockPanel>
-            <CheckBox x:Name="checkBoxCurrentFilter" DockPanel.Dock="Top" Checked="OnCheckBoxCurrentFilterChecked" Unchecked="OnCheckBoxCurrentFilterChecked">Current</CheckBox>
-            <CheckBox x:Name="checkBoxSomedayFilter" DockPanel.Dock="Top" Checked="OnCheckBoxSomedayFilterChecked" Unchecked="OnCheckBoxSomedayFilterChecked">Someday</CheckBox>
-            <CheckBox x:Name="checkBoxCompletedFilter" DockPanel.Dock="Top" Checked="OnCheckBoxCompletedFilterChecked" Unchecked="OnCheckBoxCompletedFilterChecked">Completed</CheckBox>
-
-            <!--<TaskDashControls:ListBoxTasks x:Name="listBoxTasks" ControlFocused="ListBoxWithAddRemoveControlFocused" DockPanel.Dock="Top" ItemsSource="{Binding Path=Task, Mode=TwoWay}" KeyDown="OnListBoxTasksKeyDown" SelectionChanged="OnListBoxTasksSelectionChanged" Loaded="OnListBoxTasksLoaded" />-->
-            <TaskDashControls:ListBoxTasks x:Name="listBoxTasks" ControlFocused="ListBoxWithAddRemoveControlFocused" DockPanel.Dock="Top" 
-                ItemsSource="{Binding Path=Task, Mode=TwoWay}" KeyDown="OnListBoxTasksKeyDown" SelectionChanged="OnListBoxTasksSelectionChanged" Loaded="OnListBoxTasksLoaded" />
-        </DockPanel>
-
-
-
-
-
-        <!-- Task Details -->
-
-        <Border    BorderBrush="DarkBlue" BorderThickness="6"
+﻿<UserControl x:Class="TaskDash.Windows.Main.TaskDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:TaskDashControls="clr-namespace:TaskDash.Controls;assembly=TaskDash.Controls" mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <Border    BorderBrush="DarkBlue" BorderThickness="6"
                  Grid.Row="1" Grid.Column="1" 
                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                    Margin="0, 20, 0, 20">
@@ -120,9 +21,9 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
-                <Grid Height="166" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grid1" VerticalAlignment="Top" Width="479" Background="#FFF2F2F2" />
-            
+
+            <Grid Height="166" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grid1" VerticalAlignment="Top" Width="479" Background="#FFF2F2F2" />
+
 
 
             <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
@@ -201,6 +102,5 @@
                 <TaskDashControls:ListBoxWords x:Name="listBoxWords"  LabelText="Words" ControlFocused="ListBoxWithAddRemoveControlFocused"  ItemsSource="{Binding Path=Text, Mode=TwoWay}" Width="Auto" DockPanel.Dock="Left" />
             </DockPanel>
         </Grid>
-        </Border>
-    </Grid>
-</Window>
+    </Border>
+</UserControl>

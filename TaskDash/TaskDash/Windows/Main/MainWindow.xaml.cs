@@ -62,17 +62,12 @@ namespace TaskDash
             _clipboardMonitor.ClipboardData += new RoutedEventHandler(_clipboardMonitor_ClipboardData);
 
             DataContext = _tasks;
-            listBoxTasks.DataContext = _tasks.FilteredTasks; // TODO: Is there any way to bind this behind the scenes?
-            comboBoxTagsFilter.DataContext = _tasks.Tasks.TagList;
-            comboBoxSortBy.DataContext = TaskComparer.Instance;
 
 
             _notificationManager = new NotificationManager(_tasks);
             _notificationManager.Start();
 
-            _tasks.FilteredTasks.Filter += OnFilteredTasksFilter;
-
-            Search();
+            _viewModel.Search();
 
             _saveService = new SaveService(_tasks);
             _saveService.Start();
@@ -105,60 +100,9 @@ namespace TaskDash
 
         public static MainWindow Instance { get; private set; }
 
-        private void OnFilteredTasksFilter(object sender, FilterEventArgs e)
-        {
-            e.Accepted = false;
-            var task = (Task)e.Item;
+        
 
-
-            string search = textBoxSearch.Text;
-            string tag = (comboBoxTagsFilter.SelectedValue == null ? "" : comboBoxTagsFilter.SelectedValue.ToString());
-
-
-            if (task.CloselyMatches(search)
-                && (checkBoxCurrentFilter.IsChecked == false
-                    || task.Current == checkBoxCurrentFilter.IsChecked)
-                && (task.Someday == checkBoxSomedayFilter.IsChecked)
-                && (task.Completed == checkBoxCompletedFilter.IsChecked)
-                && (tag == String.Empty || task.Tags.ToLower().Contains(tag))
-                )
-            {
-                e.Accepted = true;
-            }
-        }
-
-        private void OnTextBoxSearchKeyUp(object sender, KeyEventArgs e)
-        {
-            Search();
-
-            if (e.Key == Key.Enter)
-            {
-                SelectFirstTask();
-            }
-        }
-
-        private void Search()
-        {
-            if (_tasks == null) return;
-
-            var view = (ListCollectionView)_tasks.FilteredTasks.View;
-
-            if (view.IsAddingNew)
-            {
-                view.CommitNew();
-            }
-
-            TaskComparer sorter = (TaskComparer)comboBoxSortBy.SelectedValue ?? TaskComparer.Default;
-
-            if (sorter.MainMethod != TaskComparer.TaskComparingMethod.None)
-            {
-                sorter.MatchPhrase = textBoxSearch.Text;
-                view.CustomSort = sorter;
-            }
-
-            // Search
-            view.Refresh();
-        }
+        
 
         private void Save()
         {
@@ -167,14 +111,6 @@ namespace TaskDash
             textBoxKey.Focus();
 
             _saveService.Save();
-        }
-
-        private void OnTextBoxSearchKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                SelectFirstTask();
-            }
         }
 
         private void OnSaveButtonClick(object sender, RoutedEventArgs e)
@@ -187,29 +123,7 @@ namespace TaskDash
             Save();
         }
 
-        private void OnListBoxTasksLoaded(object sender, RoutedEventArgs e)
-        {
-            SelectFirstTask();
-            textBoxKey.Focus();
-        }
-
-        private void SelectFirstTask()
-        {
-            if (listBoxTasks.Items.Count > 0)
-            {
-                ListBoxItem item = listBoxTasks.GetFirstListBoxItemFromListBox();
-                // Force refresh of selection. 
-                // Otherwise the program starts up without anything selected.
-                item.IsSelected = false;
-                item.IsSelected = true;
-                item.Focus();
-            }
-            else
-            {
-                listBoxTasks.SelectedItem = null;
-                DataContext = null;
-            }
-        }
+        
 
         private void OnWindowKeyDown(object sender, KeyEventArgs e)
         {
@@ -409,16 +323,6 @@ namespace TaskDash
                 _notifyIcon.Visible = show;
         }
 
-        private void OnCheckBoxCurrentFilterChecked(object sender, RoutedEventArgs e)
-        {
-            Search();
-        }
-
-        private void OnCheckBoxSomedayFilterChecked(object sender, RoutedEventArgs e)
-        {
-            Search();
-        }
-
         private void EditTaskItemClick(object sender, RoutedEventArgs e)
         {
             ShowEditTaskItemDialog();
@@ -432,13 +336,6 @@ namespace TaskDash
 
             var editTaskItem = new EditTaskItem(task.FilteredItems.View, item);
             editTaskItem.Show();
-        }
-
-        public void OnListBoxTasksSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            RefreshTaskBindings();
-
-            UpdatedSelected(e);
         }
 
         private void RefreshTaskBindings()
@@ -511,20 +408,7 @@ namespace TaskDash
             }
         }
 
-        void OnFilteredLogsFilter(object sender, FilterEventArgs e)
-        {
-            e.Accepted = false;
-            var taskLog = (Log)e.Item;
-
-            string tag = (comboBoxLogTagsFilter.SelectedValue == null ? "" : comboBoxLogTagsFilter.SelectedValue.ToString());
-
-
-            if (string.IsNullOrEmpty(tag)
-                || taskLog.Tags.ToLower().Contains(tag.ToLower()))
-            {
-                e.Accepted = true;
-            }
-        }
+        
 
 
         private static void UpdatedSelected(SelectionChangedEventArgs e)
@@ -554,37 +438,9 @@ namespace TaskDash
             RefreshLogs();
         }
 
-        private void OnButtonStartStopClick(object sender, RoutedEventArgs e)
-        {
-            var task = SelectedTask;
-            if (task != null)
-            {
-                task.ToggleTimer();
-            }
-        }
-
         public Task SelectedTask
         {
             get { return (Task) listBoxTasks.SelectedItem; }
-        }
-
-        private void OnComboBoxSortBySelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Search();
-        }
-
-        private void OnButtonResetClick(object sender, RoutedEventArgs e)
-        {
-            var task = SelectedTask;
-            if (task != null)
-            {
-                task.ResetTimer();
-            }
-        }
-
-        private void OnCheckBoxCompletedFilterChecked(object sender, RoutedEventArgs e)
-        {
-            Search();
         }
 
         private void OnAccordianButtonClick(object sender, RoutedEventArgs e)
@@ -706,16 +562,6 @@ namespace TaskDash
             }
         }
 
-        private void TextBoxWithDescriptionControlFocused(object sender, RoutedEventArgs e)
-        {
-            if (DockingState == WindowDockingState.AddingDockingControls)
-            {
-                var source = (TextBoxWithDescription)e.Source;
-
-                _dockWindow.AddControl(source);
-            }
-        }
-
         public enum WindowDockingState
         {
             Normal,
@@ -815,6 +661,11 @@ namespace TaskDash
             Dispose();
         }
 
-        
+
+
+        internal void SelectTask(Task Task)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

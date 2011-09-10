@@ -9,12 +9,12 @@ TaskDash
 none
 false
 DEBUG;TRACE
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\App.xaml
-671459172
+C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash\Windows\App.xaml
+71082582436
 
-23980820477
+25-1553723964
 19-1666105755
-AccordianWindow.xaml;DockWindow.xaml;LoggingRequestDialog.xaml;MainWindow.xaml;EditTaskItem.xaml;Notifications\NotificationWindow.xaml;
+Windows\DockWindow.xaml;Windows\LoggingRequestDialog.xaml;Windows\Main\MainWindow.xaml;Windows\EditTaskItem.xaml;Notifications\NotificationWindow.xaml;Windows\Main\TaskDetailsView.xaml;Windows\Main\TaskListView.xaml;
 
-False
+True
 

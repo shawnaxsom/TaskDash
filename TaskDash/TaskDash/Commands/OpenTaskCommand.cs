@@ -14,7 +14,7 @@ namespace TaskDash.Commands
         public override void Execute(object parameter)
         {
             var main = MainWindow.Instance;
-            main.listBoxTasks.SelectedItem = Task;
+            main.SelectTask(Task);
         }
 
         public override bool CanExecute(object parameter)
