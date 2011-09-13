@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using TaskDash.Core.Models.Sorting;
 using TaskDash.Core.Models.Tasks;
+using TaskDash.UserControls.Tasks;
 using TaskDash.ViewModels;
 using TaskNS = TaskDash.Core.Models.Tasks;
 
@@ -10,6 +11,14 @@ namespace TaskDash.UserControls
 {
     public class TaskListViewModel : ViewModelBase<TaskListViewModel>
     {
+        public TaskListViewModel(TaskListUserControlView userControlView)
+        {
+            _userControlView = userControlView;
+
+            Tasks = new Task().GetTasks();
+            FilteredTasks = new CollectionViewSource { Source = this.Tasks };
+        }
+
         public CollectionViewSource FilteredTasks { get; set; }
 
         public void Search()

@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Drawing;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using TaskDash.CustomControls;
 using TaskDash.Core.Models.Tasks;
 using TaskDash.Core.Services;
 using TaskDash.Notifications;
-using TaskDash.ViewModels;
+using TaskDash.UserControls.Tasks;
 using Control = System.Windows.Controls.Control;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using TextBox = System.Windows.Controls.TextBox;
@@ -43,6 +38,8 @@ namespace TaskDash
         private readonly SaveService _saveService;
         private readonly MainWindowViewModel _viewModel;
         private bool _docking;
+        private TaskListUserControlView _taskListView;
+        private TaskDetailsView _taskDetailsView;
 
         static MainWindow()
         {
@@ -52,14 +49,10 @@ namespace TaskDash
         public MainWindow()
         {
             InitializeComponent();
-
-
-            SetParentWindow();
-
+            InitializeUserControlViews();
 
             
-
-            _viewModel = new MainWindowViewModel(this, taskListView, taskDetailsView);
+            _viewModel = new MainWindowViewModel(this, _taskListView, _taskDetailsView);
 
 
             DataContext = _viewModel;
@@ -80,6 +73,24 @@ namespace TaskDash
                                     _viewModel.ViewDetails.ListBoxItems,
                                     _viewModel.ViewDetails.ListBoxLogs
                                 };
+
+
+            SetParentWindow();
+        }
+
+        private void InitializeUserControlViews()
+        {
+            //<Tasks:TaskListUserControlView x:Name="taskListView" Grid.Row="1" Grid.Column="0" />
+            _taskListView = new TaskListUserControlView();
+            gridMain.Children.Add(TaskListView);
+            Grid.SetRow(TaskListView, 1);
+            Grid.SetColumn(TaskListView, 0);
+
+            //<Tasks:TaskDetailsView x:Name="taskDetailsView" Grid.Row="1" Grid.Column="1" />
+            _taskDetailsView = new TaskDetailsView();
+            gridMain.Children.Add(TaskDetailsView);
+            Grid.SetRow(TaskDetailsView, 1);
+            Grid.SetColumn(TaskDetailsView, 1);
         }
 
         public static MainWindow Instance { get; private set; }
@@ -130,6 +141,16 @@ namespace TaskDash
         protected ListBoxTasks ListBoxTasks
         {
             get { return _viewModel.UserControlViewList.ListBoxTasks; }
+        }
+
+        public TaskDetailsView TaskDetailsView
+        {
+            get { return _taskDetailsView; }
+        }
+
+        public TaskListUserControlView TaskListView
+        {
+            get { return _taskListView; }
         }
 
 

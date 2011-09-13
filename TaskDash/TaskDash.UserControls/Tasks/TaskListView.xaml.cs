@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TaskDash.Core.Models.Sorting;
 using TaskDash.Core.Models.Tasks;
 using TaskDash.CustomControls;
 
-namespace TaskDash.UserControls
+namespace TaskDash.UserControls.Tasks
 {
     /// <summary>
     /// Interaction logic for TaskListView.xaml
@@ -33,7 +25,8 @@ namespace TaskDash.UserControls
         {
             InitializeComponent();
 
-            ViewModel = new TaskListViewModel();
+            ViewModel = new TaskListViewModel(this);
+
 
             listBoxTasks.DataContext = ViewModel.FilteredTasks; // TODO: Is there any way to bind this behind the scenes?
             comboBoxTagsFilter.DataContext = ViewModel.Tasks.TagList;

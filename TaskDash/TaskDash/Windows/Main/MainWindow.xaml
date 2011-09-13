@@ -5,7 +5,7 @@
         KeyDown="OnWindowKeyDown"
         StateChanged="OnStateChanged" IsVisibleChanged="OnIsVisibleChanged">
     
-    <Grid>
+    <Grid x:Name="gridMain">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
@@ -21,7 +21,7 @@
             <Button x:Name="AccordianButton" Click="OnAccordianButtonClick">Dock</Button>
         </ToolBar>
 
-        <UserControls:TaskListUserControlView x:Name="taskListView" Grid.Row="1" Grid.Column="0" />
-        <Tasks:TaskDetailsView x:Name="taskDetailsView" Grid.Row="1" Grid.Column="1" />    
+        <!--<Tasks:TaskListUserControlView x:Name="taskListView" Grid.Row="1" Grid.Column="0" />-->
+        <!--<Tasks:TaskDetailsView x:Name="taskDetailsView" Grid.Row="1" Grid.Column="1" />-->    
     </Grid>
 </Window>
