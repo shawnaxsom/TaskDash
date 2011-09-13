@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers.cs" />
+    <Compile Include="Dialogs\EditTaskItem.xaml.cs">
+      <DependentUpon>EditTaskItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IMainWindow.cs" />
     <Compile Include="ListBoxTasks.xaml.cs">
       <DependentUpon>ListBoxTasks.xaml</DependentUpon>
@@ -97,6 +100,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Dialogs\EditTaskItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ListBoxTasks.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

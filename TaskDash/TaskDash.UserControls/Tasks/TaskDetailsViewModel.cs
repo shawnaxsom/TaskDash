@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Data;
 using TaskDash.Core.Models.Tasks;
+using TaskDash.CustomControls.Dialogs;
 using TaskDash.ViewModels;
 
-namespace TaskDash.UserControls.TaskControls
+namespace TaskDash.UserControls.Tasks
 {
     public class TaskDetailsViewModel : ViewModelBase<TaskDetailsViewModel>
     {
@@ -41,8 +39,13 @@ namespace TaskDash.UserControls.TaskControls
         public static readonly DependencyProperty SelectedTaskProperty =
             DependencyProperty.Register("SelectedTask", typeof(Task), typeof(TaskDetailsViewModel), new UIPropertyMetadata(null));
 
+        private TaskDetailsView _view;
 
-        
+        public TaskDetailsViewModel(TaskDetailsView view)
+        {
+            _view = view;
+        }
+
 
         private void RefreshLogs()
         {
@@ -85,6 +88,16 @@ namespace TaskDash.UserControls.TaskControls
 
             string queryUrl = page + jqlQuery + options;
             Process.Start(queryUrl);
+        }
+
+        public void ShowEditTaskItemDialog()
+        {
+            Task task = SelectedTask;
+            var listBox = _view.listBoxItems;
+            var item = (TaskItem)listBox.SelectedItem;
+
+            var editTaskItem = new EditTaskItem(task.FilteredItems.View, item);
+            editTaskItem.Show();
         }
     }
 }

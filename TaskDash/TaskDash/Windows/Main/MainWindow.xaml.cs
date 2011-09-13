@@ -37,15 +37,12 @@ namespace TaskDash
 
         #endregion
 
-        private readonly ClipboardMonitorService _clipboardMonitor;
         private readonly List<Control> _controlCycle;
 
         private readonly NotificationManager _notificationManager;
         private readonly SaveService _saveService;
-        private readonly MainWindowViewModel _tasks;
-        private DockWindow _dockWindow;
+        private readonly MainWindowViewModel _viewModel;
         private bool _docking;
-        private WindowState _storedWindowState = WindowState.Normal;
 
         static MainWindow()
         {
@@ -60,33 +57,28 @@ namespace TaskDash
             SetParentWindow();
 
 
-            Icon = new BitmapImage(new Uri(@"C:\Users\Shawn.Axsom\Desktop\TaskDash.ico"));
-            LoadTrayIcon();
-            ShowTrayIcon(true);
+            
 
-            _tasks = new MainWindowViewModel();
+            _viewModel = new MainWindowViewModel(this, taskListView, taskDetailsView);
 
 
-            _clipboardMonitor = new ClipboardMonitorService();
-            _clipboardMonitor.ClipboardData += _clipboardMonitor_ClipboardData;
-
-            DataContext = _tasks;
+            DataContext = _viewModel;
 
 
-            _notificationManager = new NotificationManager(_tasks);
+            _notificationManager = new NotificationManager(_viewModel);
             _notificationManager.Start();
 
             _viewModel.Search();
 
-            _saveService = new SaveService(_tasks);
+            _saveService = new SaveService(_viewModel.Tasks);
             _saveService.Start();
 
 
             _controlCycle = new List<Control>
                                 {
-                                    listBoxTasks,
-                                    listBoxItems,
-                                    listBoxLogs
+                                    _viewModel.UserControlViewList.ListBoxTasks,
+                                    _viewModel.ViewDetails.ListBoxItems,
+                                    _viewModel.ViewDetails.ListBoxLogs
                                 };
         }
 
@@ -108,30 +100,7 @@ namespace TaskDash
 
         public Task SelectedTask
         {
-            get { return (Task) listBoxTasks.SelectedItem; }
-        }
-
-        public WindowDockingState DockingState
-        {
-            get
-            {
-                if (_dockWindow != null)
-                {
-                    if (WindowState == WindowState.Normal
-                        || WindowState == WindowState.Maximized)
-                    {
-                        return WindowDockingState.AddingDockingControls;
-                    }
-                    else
-                    {
-                        return WindowDockingState.Docked;
-                    }
-                }
-                else
-                {
-                    return WindowDockingState.Normal;
-                }
-            }
+            get { return (Task) ListBoxTasks.SelectedItem; }
         }
 
         #region IDisposable Members
@@ -155,16 +124,20 @@ namespace TaskDash
 
         private void SetParentWindow()
         {
-            listBoxTasks.ParentWindow = this;
+            ListBoxTasks.ParentWindow = this;
         }
 
-        
+        protected ListBoxTasks ListBoxTasks
+        {
+            get { return _viewModel.UserControlViewList.ListBoxTasks; }
+        }
+
 
         private void Save()
         {
             // Make sure you exit the current box if it has edits, before saving
-            textBoxDetails.Focus();
-            textBoxKey.Focus();
+            _viewModel.ViewDetails.TextBoxDetails.Focus();
+            _viewModel.ViewDetails.TextBoxKey.Focus();
 
             _saveService.Save();
         }
@@ -183,6 +156,12 @@ namespace TaskDash
 
         private void OnWindowKeyDown(object sender, KeyEventArgs e)
         {
+            _viewModel.OnWindowKeyDown(sender, e);
+
+            if (e.Handled) return;
+
+
+
             if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
             {
                 if (e.Key == Key.W)
@@ -196,41 +175,7 @@ namespace TaskDash
             }
             else
             {
-                if (e.Key == Key.Escape)
-                {
-                    if (listBoxTasks.ChildHasFocus)
-                    {
-                        WindowState = WindowState.Minimized;
-                    }
-                    else
-                    {
-                        listBoxTasks.Focus();
-                    }
-                }
-                else if (e.Key == Key.T)
-                {
-                    AddItemOrFocus(listBoxTasks);
-                }
-                else if (e.Key == Key.I)
-                {
-                    AddItemOrFocus(listBoxItems);
-                }
-                else if (e.Key == Key.L)
-                {
-                    AddItemOrFocus(listBoxLogs);
-                    if (!IsEditing
-                        && (!Keyboard.IsKeyDown(Key.LeftShift)
-                            && !Keyboard.IsKeyDown(Key.RightShift)))
-                    {
-                        textBoxLogEntry.Focus();
-                    }
-                }
-                else if (!IsEditing
-                         && e.Key == Key.Oem2) // Forward Slash
-                {
-                    textBoxSearch.Focus();
-                }
-                else if (!IsEditing
+                if (!IsEditing
                          && (e.Key == Key.N))
                 {
                     Cycle(1);
@@ -256,7 +201,7 @@ namespace TaskDash
             }
             else
             {
-                _storedWindowState = WindowState;
+                _viewModel.StoredWindowState = WindowState;
             }
         }
 
@@ -292,7 +237,7 @@ namespace TaskDash
 
             if (!_controlCycle.Contains(listBoxControl))
             {
-                listBoxTasks.Focus();
+                ListBoxTasks.Focus();
             }
             else
             {
@@ -310,109 +255,59 @@ namespace TaskDash
             }
         }
 
-        private void AddItemOrFocus(ListBoxWithAddRemove listBox)
-        {
-            if (!IsEditing)
-            {
-                if (Keyboard.IsKeyDown(Key.LeftShift)
-                    || Keyboard.IsKeyDown(Key.RightShift))
-                {
-                    listBox.Focus();
-                }
-                else
-                {
-                    listBox.SimulateClick(listBox.AddButton);
-                }
-            }
-        }
+        //private void RefreshTaskBindings()
+        //{
+        //    Task task = SelectedTask;
+        //    if (task != null)
+        //    {
+        //        // TODO: I shouldn't have to do this. 
+        //        // TODO: How do I do ItemsSource="{Binding Links}" but have ADD button be able to get the Links collection rather than the Tasks collection?
+        //        DataContext = task;
 
-        private void OnNotifyIconClick(object sender, EventArgs e)
-        {
-            if (DockingState == WindowDockingState.Normal
-                || DockingState == WindowDockingState.AddingDockingControls)
-            {
-                Show();
-                WindowState = _storedWindowState;
-                Activate();
-            }
-            else
-            {
-                _dockWindow.Show();
-                _dockWindow.Activate();
-            }
-        }
+        //        var phrasesView = (ListCollectionView) task.FilteredPhrases.View;
+        //        if (phrasesView.IsAddingNew)
+        //        {
+        //            phrasesView.CommitNew();
+        //        }
+        //        phrasesView.SortDescriptions.Add(new SortDescription("Occurances", ListSortDirection.Descending));
+        //        _viewModel.ViewDetails.listBoxPhrases.DataContext = task.FilteredPhrases;
 
-        
-        
+        //        var wordsView = (ListCollectionView) task.FilteredWords.View;
+        //        if (wordsView.IsAddingNew)
+        //        {
+        //            wordsView.CommitNew();
+        //        }
+        //        wordsView.SortDescriptions.Add(new SortDescription("Occurances", ListSortDirection.Descending));
+        //        _viewModel.ViewDetails.listBoxWords.DataContext = task.FilteredWords;
 
-        private void EditTaskItemClick(object sender, RoutedEventArgs e)
-        {
-            ShowEditTaskItemDialog();
-        }
+        //        var linksView = (ListCollectionView) task.FilteredLinks.View;
+        //        if (linksView.IsAddingNew)
+        //        {
+        //            linksView.CommitNew();
+        //        }
+        //        linksView.SortDescriptions.Add(new SortDescription("Occurances", ListSortDirection.Descending));
+        //        _viewModel.ViewDetails.DataContext = task.FilteredLinks;
 
-        private void ShowEditTaskItemDialog()
-        {
-            Task task = SelectedTask;
-            var listBox = listBoxItems;
-            var item = (TaskItem) listBox.SelectedItem;
+        //        var logsview = (ListCollectionView) task.FilteredLogs.View;
+        //        if (logsview.IsAddingNew)
+        //        {
+        //            logsview.CommitNew();
+        //        }
+        //        _viewModel.ViewDetails.listBoxLogs.DataContext = task.FilteredLogs;
+        //        task.FilteredLogs.Filter += OnFilteredLogsFilter;
 
-            var editTaskItem = new EditTaskItem(task.FilteredItems.View, item);
-            editTaskItem.Show();
-        }
+        //        task.Logs.RefreshLogTagList();
+        //        _viewModel.ViewDetails.comboBoxLogTagsFilter.DataContext = task.Logs;
 
-        private void RefreshTaskBindings()
-        {
-            Task task = SelectedTask;
-            if (task != null)
-            {
-                // TODO: I shouldn't have to do this. 
-                // TODO: How do I do ItemsSource="{Binding Links}" but have ADD button be able to get the Links collection rather than the Tasks collection?
-                DataContext = task;
-
-                var phrasesView = (ListCollectionView) task.FilteredPhrases.View;
-                if (phrasesView.IsAddingNew)
-                {
-                    phrasesView.CommitNew();
-                }
-                phrasesView.SortDescriptions.Add(new SortDescription("Occurances", ListSortDirection.Descending));
-                listBoxPhrases.DataContext = task.FilteredPhrases;
-
-                var wordsView = (ListCollectionView) task.FilteredWords.View;
-                if (wordsView.IsAddingNew)
-                {
-                    wordsView.CommitNew();
-                }
-                wordsView.SortDescriptions.Add(new SortDescription("Occurances", ListSortDirection.Descending));
-                listBoxWords.DataContext = task.FilteredWords;
-
-                var linksView = (ListCollectionView) task.FilteredLinks.View;
-                if (linksView.IsAddingNew)
-                {
-                    linksView.CommitNew();
-                }
-                linksView.SortDescriptions.Add(new SortDescription("Occurances", ListSortDirection.Descending));
-                listBoxLinks.DataContext = task.FilteredLinks;
-
-                var logsview = (ListCollectionView) task.FilteredLogs.View;
-                if (logsview.IsAddingNew)
-                {
-                    logsview.CommitNew();
-                }
-                listBoxLogs.DataContext = task.FilteredLogs;
-                task.FilteredLogs.Filter += OnFilteredLogsFilter;
-
-                task.Logs.RefreshLogTagList();
-                comboBoxLogTagsFilter.DataContext = task.Logs;
-
-                linksView = (ListCollectionView) task.FilteredItems.View;
-                if (linksView.IsAddingNew)
-                {
-                    linksView.CommitNew();
-                }
-                listBoxItems.DataContext = task.FilteredItems;
-                task.FilteredItems.Filter += OnFilteredItemsFilter;
-            }
-        }
+        //        linksView = (ListCollectionView) task.FilteredItems.View;
+        //        if (linksView.IsAddingNew)
+        //        {
+        //            linksView.CommitNew();
+        //        }
+        //        _viewModel.ViewDetails.listBoxItems.DataContext = task.FilteredItems;
+        //        task.FilteredItems.Filter += OnFilteredItemsFilter;
+        //    }
+        //}
 
         
 
@@ -423,70 +318,9 @@ namespace TaskDash
         //    textBoxLogEntry.DataContext = log;
         //}
 
-        private void AddDefaultDockingControls()
-        {
-            if (_dockWindow == null) return;
-
-
-            //_dockWindow.AddControl(textBoxNextSteps);
-            //_dockWindow.AddControl(listBoxItems);
-            //_dockWindow.AddControl(listBoxLogs);
-            //_dockWindow.AddControl(textBoxLogEntry);
-            //_dockWindow.AddControl(listBoxLinks);
-            _dockWindow.AddControls(_viewModel.DefaultDockingControls);
-        }
-
         private void OnAccordianButtonClick(object sender, RoutedEventArgs e)
         {
-            //var window = new AccordianWindow(_tasks)
-            //                 {
-            //                     WindowStartupLocation = WindowStartupLocation.CenterOwner
-            //                 };
-            //window.Show();
-            //Hide();
-
-            if (DockingState == WindowDockingState.Normal)
-            {
-                _dockWindow = new DockWindow(this)
-                                  {
-                                      WindowStartupLocation = WindowStartupLocation.Manual,
-                                      Top = 0,
-                                      Height = SystemParameters.PrimaryScreenHeight - 30
-                                  };
-                _dockWindow.Left = SystemParameters.PrimaryScreenWidth - _dockWindow.Width;
-                _dockWindow.Show();
-
-                _dockWindow.Closed += _dockWindow_Closed;
-
-                AddDefaultDockingControls();
-            }
-            else
-            {
-                Hide();
-                _dockWindow.Activate();
-            }
-        }
-
-        private void _dockWindow_Closed(object sender, EventArgs e)
-        {
-            _dockWindow = null;
-        }
-
-        private void OnListBoxTasksKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter
-                && !listBoxTasks.IsEditingSelectedItem)
-            {
-                textBoxKey.Focus();
-            }
-        }
-
-        private void OnListBoxItemsKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                ShowEditTaskItemDialog();
-            }
+            _viewModel.HandleAccordianButtonClick();
         }
 
         //private void OnListBoxLogsKeyDown(object sender, KeyEventArgs e)
@@ -505,12 +339,7 @@ namespace TaskDash
 
         private void ListBoxWithAddRemoveMouseDown(object sender, RoutedEventArgs e)
         {
-            if (DockingState == WindowDockingState.AddingDockingControls)
-            {
-                var source = (ListBoxWithAddRemove) e.Source;
-
-                _dockWindow.AddControl(source);
-            }
+            _viewModel.HandleListBoxWithAddRemoveMouseDown(sender, e);
         }
 
         //private void ListBoxWithAddRemoveControlFocused(object sender, RoutedEventArgs e)

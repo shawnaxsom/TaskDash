@@ -13,25 +13,33 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TaskDash.Core.Models.Sorting;
 using TaskDash.Core.Models.Tasks;
+using TaskDash.CustomControls;
 
 namespace TaskDash.UserControls
 {
     /// <summary>
     /// Interaction logic for TaskListView.xaml
     /// </summary>
-    public partial class TaskListView : UserControl
+    public partial class TaskListUserControlView : UserControlViewBase
     {
-        private TaskListViewModel _viewModel;
+        public TaskListViewModel ViewModel { get; private set; }
 
-        public TaskListView()
+        public ListBoxTasks ListBoxTasks
+        {
+            get { return listBoxTasks; }
+        }
+
+        public TaskListUserControlView()
         {
             InitializeComponent();
 
-            listBoxTasks.DataContext = _viewModel.FilteredTasks; // TODO: Is there any way to bind this behind the scenes?
-            comboBoxTagsFilter.DataContext = _viewModel.Tasks.TagList;
+            ViewModel = new TaskListViewModel();
+
+            listBoxTasks.DataContext = ViewModel.FilteredTasks; // TODO: Is there any way to bind this behind the scenes?
+            comboBoxTagsFilter.DataContext = ViewModel.Tasks.TagList;
             comboBoxSortBy.DataContext = TaskComparer.Instance;
 
-            _viewModel.FilteredTasks.Filter += OnFilteredTasksFilter;
+            ViewModel.FilteredTasks.Filter += OnFilteredTasksFilter;
         }
 
         private void OnComboBoxTagsFilterSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -41,27 +49,27 @@ namespace TaskDash.UserControls
 
         private void OnTextBoxSearchKeyUp(object sender, KeyEventArgs e)
         {
-            _viewModel.Search();
+            ViewModel.Search();
 
             if (e.Key == Key.Enter)
             {
-                _viewModel.SelectFirstTask();
+                ViewModel.SelectFirstTask();
             }
         }
 
         private void OnCheckBoxCurrentFilterChecked(object sender, RoutedEventArgs e)
         {
-            _viewModel.Search();
+            ViewModel.Search();
         }
 
         private void OnComboBoxSortBySelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _viewModel.Search();
+            ViewModel.Search();
         }
 
         private void OnCheckBoxCompletedFilterChecked(object sender, RoutedEventArgs e)
         {
-            _viewModel.Search();
+            ViewModel.Search();
         }
 
         public void OnListBoxTasksSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -88,7 +96,7 @@ namespace TaskDash.UserControls
 
         private void OnCheckBoxSomedayFilterChecked(object sender, RoutedEventArgs e)
         {
-            _viewModel.Search();
+            ViewModel.Search();
         }
 
         private void OnFilteredTasksFilter(object sender, FilterEventArgs e)
@@ -113,18 +121,44 @@ namespace TaskDash.UserControls
             }
         }
 
+        private void OnListBoxTasksKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter
+                && !listBoxTasks.IsEditingSelectedItem)
+            {
+                //textBoxKey.Focus();
+            }
+        }
+
         private void OnTextBoxSearchKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                _viewModel.SelectFirstTask();
+                ViewModel.SelectFirstTask();
             }
         }
 
         private void OnListBoxTasksLoaded(object sender, RoutedEventArgs e)
         {
-            _viewModel.SelectFirstTask();
+            ViewModel.SelectFirstTask();
             //textBoxKey.Focus();
+        }
+
+        public void OnWindowKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Handled) return;
+
+            if (e.Key == Key.T)
+            {
+                AddItemOrFocus(listBoxTasks);
+                e.Handled = true;
+            }
+            else if (!IsEditing
+                     && e.Key == Key.Oem2) // Forward Slash
+            {
+                textBoxSearch.Focus();
+                e.Handled = true;
+            }
         }
     }
 }

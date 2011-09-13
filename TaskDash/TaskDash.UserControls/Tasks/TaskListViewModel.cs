@@ -4,6 +4,7 @@ using System.Windows.Data;
 using TaskDash.Core.Models.Sorting;
 using TaskDash.Core.Models.Tasks;
 using TaskDash.ViewModels;
+using TaskNS = TaskDash.Core.Models.Tasks;
 
 namespace TaskDash.UserControls
 {
@@ -11,7 +12,7 @@ namespace TaskDash.UserControls
     {
         public CollectionViewSource FilteredTasks { get; set; }
 
-        internal void Search()
+        public void Search()
         {
             if (_tasks == null) return;
 
@@ -62,10 +63,10 @@ namespace TaskDash.UserControls
 
 
 
-        private Tasks _tasks;
-        private TaskListView _view;
+        private TaskNS.Tasks _tasks;
+        private TaskListUserControlView _userControlView;
 
-        public Tasks Tasks
+        public TaskNS.Tasks Tasks
         {
             get { return _tasks; }
             private set
@@ -134,9 +135,9 @@ namespace TaskDash.UserControls
 
         internal void SelectFirstTask()
         {
-            if (_view.listBoxTasks.Items.Count > 0)
+            if (_userControlView.listBoxTasks.Items.Count > 0)
             {
-                ListBoxItem item = _view.listBoxTasks.GetFirstListBoxItemFromListBox();
+                ListBoxItem item = _userControlView.listBoxTasks.GetFirstListBoxItemFromListBox();
                 // Force refresh of selection. 
                 // Otherwise the program starts up without anything selected.
                 item.IsSelected = false;
@@ -145,7 +146,7 @@ namespace TaskDash.UserControls
             }
             else
             {
-                _view.listBoxTasks.SelectedItem = null;
+                _userControlView.listBoxTasks.SelectedItem = null;
                 //DataContext = null;
             }
         }

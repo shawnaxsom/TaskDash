@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,22 @@ namespace TaskDash
 
             _window = window;
             Icon = new BitmapImage(new Uri(@"C:\Users\Shawn.Axsom\Desktop\TaskDash.ico"));
+        }
+
+        public void AddControl(Control control)
+        {
+            if (control is ListBoxWithAddRemove)
+            {
+                this.AddControl((ListBoxWithAddRemove)control);
+            }
+            else if (control is TextBoxWithDescription)
+            {
+                this.AddControl((TextBoxWithDescription)control);
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public void AddControl(ListBoxWithAddRemove control)
@@ -57,6 +74,14 @@ namespace TaskDash
         private void buttonIssueTracker_Click(object sender, RoutedEventArgs e)
         {
             _window.OpenIssueTracker();
+        }
+
+        public void AddControls(List<Control> defaultDockingControls)
+        {
+            foreach (Control control in defaultDockingControls)
+            {
+                this.AddControl(control);
+            }
         }
     }
 }

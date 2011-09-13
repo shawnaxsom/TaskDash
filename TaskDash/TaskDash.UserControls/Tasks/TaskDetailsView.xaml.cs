@@ -1,27 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TaskDash.CustomControls;
 using TaskDash.Core.Models.Tasks;
-using TaskDash.UserControls.TaskControls;
 
-namespace TaskDash.UserControls
+namespace TaskDash.UserControls.Tasks
 {
     /// <summary>
     /// Interaction logic for TaskDetailsView.xaml
     /// </summary>
-    public partial class TaskDetailsView : UserControl
+    public partial class TaskDetailsView : UserControlViewBase
     {
         public TaskDetailsView()
         {
@@ -99,14 +89,94 @@ namespace TaskDash.UserControls
             _viewModel.OpenIssueTracker();
         }
 
-        
+        private void OnListBoxItemsKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                _viewModel.ShowEditTaskItemDialog();
+            }
+        }
 
+        private void EditTaskItemClick(object sender, RoutedEventArgs e)
+        {
+            _viewModel.ShowEditTaskItemDialog();
+        }
+
+        public TextBoxWithDescription TextBoxLogEntry
+        {
+            get { return textBoxLogEntry; }
+        }
+
+        public ListBoxWithAddRemove ListBoxLogs
+        {
+            get {
+                return listBoxLogs;
+            }
+            set {
+                listBoxLogs = value;
+            }
+        }
+
+        public ListBoxWithAddRemove ListBoxItems
+        {
+            get {
+                return listBoxItems;
+            }
+            set {
+                listBoxItems = value;
+            }
+        }
+
+        public TextBoxWithDescription TextBoxNextSteps
+        {
+            get {
+                return textBoxNextSteps;
+            }
+            set {
+                textBoxNextSteps = value;
+            }
+        }
+
+        public TextBoxWithDescription TextBoxDetails
+        {
+            get {
+                return textBoxDetails;
+            }
+            set {
+                textBoxDetails = value;
+            }
+        }
+
+        public TextBox TextBoxKey
+        {
+            get { return textBoxKey; }
+        }
 
         private void OnButtonIssueTrackerSearchClick(object sender, RoutedEventArgs e)
         {
             _viewModel.FindInIssueTracker();
         }
-        
 
+        public void OnWindowKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Handled) return;
+
+            if (e.Key == Key.I)
+            {
+                AddItemOrFocus(listBoxItems);
+                e.Handled = true;
+            }
+            else if (e.Key == Key.L)
+            {
+                AddItemOrFocus(listBoxLogs);
+                if (!IsEditing
+                    && (!Keyboard.IsKeyDown(Key.LeftShift)
+                        && !Keyboard.IsKeyDown(Key.RightShift)))
+                {
+                    textBoxLogEntry.Focus();
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }

@@ -70,6 +70,7 @@
       <DependentUpon>TaskListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tasks\TaskListViewModel.cs" />
+    <Compile Include="Tasks\UserControlViewBase.xaml.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
