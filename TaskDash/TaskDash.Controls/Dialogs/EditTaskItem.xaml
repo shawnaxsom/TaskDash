@@ -1,0 +1,24 @@
+﻿<Window x:Class="TaskDash.CustomControls.Dialogs.EditTaskItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:CustomControls="clr-namespace:TaskDash.CustomControls" Title="Edit Task Item" Height="401" Width="489"
+        KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CustomControls:TextBoxWithDescription Grid.Row="0" Grid.Column="0"
+            x:Name="textBoxDescription" 
+            Text="{Binding Description, Mode=TwoWay}" LabelText="Description">
+        </CustomControls:TextBoxWithDescription>
+        <CustomControls:TextBoxWithDescription Grid.Row="1" Grid.Column="0"
+            x:Name="textBoxNotes" 
+            Text="{Binding Notes, Mode=TwoWay}" LabelText="Notes">
+        </CustomControls:TextBoxWithDescription>
+    </Grid>
+</Window>

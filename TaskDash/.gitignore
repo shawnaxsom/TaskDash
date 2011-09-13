@@ -11,3 +11,8 @@
 
 
 *.xlsx
+*.dll
+*.exe
+*.pdb
+*.manifest
+*.exe.config
