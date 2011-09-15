@@ -1,14 +1,3 @@
-C:\Users\Shawn.Axsom\Documents\Projects\TaskDash_NORM\TaskDash\TaskDash.Core\bin\Debug\TaskDash.Core.dll
-C:\Users\Shawn.Axsom\Documents\Projects\TaskDash_NORM\TaskDash\TaskDash.Core\bin\Debug\TaskDash.Core.pdb
-C:\Users\Shawn.Axsom\Documents\Projects\TaskDash_NORM\TaskDash\TaskDash.Core\bin\Debug\Norm.dll
-C:\Users\Shawn.Axsom\Documents\Projects\TaskDash_NORM\TaskDash\TaskDash.Core\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Shawn.Axsom\Documents\Projects\TaskDash_NORM\TaskDash\TaskDash.Core\obj\Debug\TaskDash.Core.dll
-C:\Users\Shawn.Axsom\Documents\Projects\TaskDash_NORM\TaskDash\TaskDash.Core\obj\Debug\TaskDash.Core.pdb
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash.Core\bin\Debug\TaskDash.Core.dll
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash.Core\bin\Debug\TaskDash.Core.pdb
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash.Core\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash.Core\obj\Debug\TaskDash.Core.dll
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDash.Core\obj\Debug\TaskDash.Core.pdb
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash.Core\bin\Debug\TaskDash.Core.dll
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash.Core\bin\Debug\TaskDash.Core.pdb
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash.Core\obj\Debug\ResolveAssemblyReference.cache

@@ -13,9 +13,19 @@ namespace TaskDash.UserControls.Tasks
     /// </summary>
     public partial class TaskDetailsView : UserControlViewBase
     {
-        public TaskDetailsView()
+        public TaskDetailsView(ITaskList taskList)
         {
             InitializeComponent();
+
+            taskList.SelectedTaskChanged += new SelectionChangedEventHandler(OnSelectedTaskChanged);
+        }
+
+        public void OnSelectedTaskChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems == 0) return;
+
+            Task task = e.AddedItems[0];
+            CurrentTask = task;
         }
 
 

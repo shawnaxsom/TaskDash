@@ -9,10 +9,15 @@ using TaskDash.CustomControls;
 
 namespace TaskDash.UserControls.Tasks
 {
+    public interface ITaskList
+    {
+        event SelectionChangedEventHandler SelectedTaskChanged;
+    }
+
     /// <summary>
     /// Interaction logic for TaskListView.xaml
     /// </summary>
-    public partial class TaskListUserControlView : UserControlViewBase
+    public partial class TaskListUserControlView : UserControlViewBase, ITaskList
     {
         public TaskListViewModel ViewModel { get; private set; }
 
@@ -33,7 +38,19 @@ namespace TaskDash.UserControls.Tasks
             comboBoxSortBy.DataContext = TaskComparer.Instance;
 
             ViewModel.FilteredTasks.Filter += OnFilteredTasksFilter;
+
+            this.listBoxTasks.SelectionChanged += new SelectionChangedEventHandler(listBoxTasks_SelectionChanged);
         }
+
+        public void listBoxTasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedTaskChanged(sender, e);
+        }
+
+        public event SelectionChangedEventHandler SelectedTaskChanged;
+
+
+
 
         private void OnComboBoxTagsFilterSelectionChanged(object sender, SelectionChangedEventArgs e)
         {

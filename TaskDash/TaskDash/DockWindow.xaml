@@ -1,0 +1,12 @@
+﻿<Window x:Class="TaskDash.DockWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DockWindow" Height="300" Width="300"
+        Closed="Window_Closed"
+        Topmost="True">
+    <StackPanel x:Name="MyStackPanel">
+        <ToolBar>
+            <Button x:Name="buttonIssueTracker" Click="buttonIssueTracker_Click">Jira</Button>
+        </ToolBar>
+    </StackPanel>
+</Window>

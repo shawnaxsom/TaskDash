@@ -1,9 +1,3 @@
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDashInstallerClasses\bin\Debug\TaskDashInstallerClasses.dll
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDashInstallerClasses\bin\Debug\TaskDashInstallerClasses.pdb
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDashInstallerClasses\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDashInstallerClasses\obj\Debug\TaskDashInstallerClasses.dll
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDashInstallerClasses\obj\Debug\TaskDashInstallerClasses.pdb
-C:\Users\Shawn.Axsom\My Documents\Projects\TaskDash\TaskDash\TaskDashInstallerClasses\bin\Debug\Ionic.Zip.dll
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDashInstallerClasses\bin\Debug\TaskDashInstallerClasses.dll
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDashInstallerClasses\bin\Debug\TaskDashInstallerClasses.pdb
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDashInstallerClasses\bin\Debug\Ionic.Zip.dll

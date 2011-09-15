@@ -32,37 +32,37 @@
                 <DockPanel DockPanel.Dock="Top" Width="Auto" HorizontalAlignment="Stretch">
 
                     <Label>Key:</Label>
-                    <TextBox x:Name="textBoxKey" MinWidth="100" Text="{Binding Path=Key, Mode=TwoWay}"></TextBox>
+                    <TextBox x:Name="textBoxKey" MinWidth="100" Text="{Binding Path=SelectedTask.Key, Mode=TwoWay}"></TextBox>
                     <Button x:Name="buttonIssueTracker" Click="OnButtonIssueTrackerClick" Content="Jira" />
 
                     <Label>Description:</Label>
-                    <TextBox x:Name="textBoxDescription" DockPanel.Dock="Left" Width="Auto" MinWidth="200" MaxWidth="300" Text="{Binding Path=Description}"></TextBox>
+                    <TextBox x:Name="textBoxDescription" DockPanel.Dock="Left" Width="Auto" MinWidth="200" MaxWidth="300" Text="{Binding Path=SelectedTask.Description}"></TextBox>
                     <Button x:Name="buttonIssueTrackerSearch" Click="OnButtonIssueTrackerSearchClick" Content="Search Jira" />
 
                     <Label>Tags:</Label>
-                    <TextBox x:Name="textBoxTags" DockPanel.Dock="Left" Width="Auto" MinWidth="300" Text="{Binding Path=Tags}"></TextBox>
+                    <TextBox x:Name="textBoxTags" DockPanel.Dock="Left" Width="Auto" MinWidth="300" Text="{Binding Path=SelectedTask.Tags}"></TextBox>
                 </DockPanel>
                 <DockPanel DockPanel.Dock="Top" Width="Auto" HorizontalAlignment="Stretch">
-                    <DatePicker x:Name="datePickerDueDate" Text="{Binding DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, TargetNullValue=''}" DockPanel.Dock="Left" />
+                    <DatePicker x:Name="datePickerDueDate" Text="{Binding SelectedTask.DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, TargetNullValue=''}" DockPanel.Dock="Left" />
                     <Label DockPanel.Dock="Left">Total:</Label>
-                    <TextBox x:Name="textBoxTotalTime" Text="{Binding TotalTime, Mode=OneWay}" DockPanel.Dock="Left" />
+                    <TextBox x:Name="textBoxTotalTime" Text="{Binding SelectedTask.TotalTime, Mode=OneWay}" DockPanel.Dock="Left" />
                     <Label DockPanel.Dock="Left">Recent:</Label>
-                    <TextBox x:Name="textBoxRecentTime" Text="{Binding RecentTime, Mode=OneWay}" DockPanel.Dock="Left" />
+                    <TextBox x:Name="textBoxRecentTime" Text="{Binding SelectedTask.RecentTime, Mode=OneWay}" DockPanel.Dock="Left" />
 
 
                     <Button x:Name="buttonStartStop" Click="OnButtonStartStopClick" MaxWidth="40">Pause</Button>
                     <Button x:Name="buttonReset" Click="OnButtonResetClick" MaxWidth="40">Reset</Button>
 
-                    <CheckBox x:Name="checkBoxCurrent" IsChecked="{Binding Path=Current, Mode=TwoWay}">
+                    <CheckBox x:Name="checkBoxCurrent" IsChecked="{Binding Path=SelectedTask.Current, Mode=TwoWay}">
                         Current</CheckBox>
-                    <CheckBox x:Name="checkBoxSomeday" IsChecked="{Binding Path=Someday, Mode=TwoWay}">
+                    <CheckBox x:Name="checkBoxSomeday" IsChecked="{Binding Path=SelectedTask.Someday, Mode=TwoWay}">
                         Someday</CheckBox>
-                    <CheckBox x:Name="checkBoxCompleted" IsChecked="{Binding Path=Completed, Mode=TwoWay}">
+                    <CheckBox x:Name="checkBoxCompleted" IsChecked="{Binding Path=SelectedTask.Completed, Mode=TwoWay}">
                         Completed</CheckBox>
                 </DockPanel>
                 <!--<TaskDashControls:TextBoxWithDescription x:Name="textBoxSummary" MaxHeight="75" DockPanel.Dock="Top" Text="{Binding Path=Summary, Mode=TwoWay}" LabelText="Summary"></TaskDashControls:TextBoxWithDescription>-->
 
-                <CustomControls:TextBoxWithDescription x:Name="textBoxDetails" ControlFocused="TextBoxWithDescriptionControlFocused"  DockPanel.Dock="Top" Text="{Binding Path=Details, Mode=TwoWay}" LabelText="Details" Height="Auto" />
+                <CustomControls:TextBoxWithDescription x:Name="textBoxDetails" ControlFocused="TextBoxWithDescriptionControlFocused"  DockPanel.Dock="Top" Text="{Binding Path=SelectedTask.Details, Mode=TwoWay}" LabelText="Details" Height="Auto" />
             </DockPanel>
 
 
@@ -71,14 +71,14 @@
 
                 <DockPanel HorizontalAlignment="Stretch" DockPanel.Dock="Top">
                     <Label>Filter Tags By:</Label>
-                    <ComboBox x:Name="comboBoxLogTagsFilter" DockPanel.Dock="Right" ItemsSource="{Binding Path=LogTagList}" DisplayMemberPath="TagName" SelectionChanged="OnComboBoxLogTagsFilterSelectionChanged" />
+                    <ComboBox x:Name="comboBoxLogTagsFilter" DockPanel.Dock="Right" ItemsSource="{Binding Path=SelectedTask.LogTagList}" DisplayMemberPath="TagName" SelectionChanged="OnComboBoxLogTagsFilterSelectionChanged" />
                 </DockPanel>
 
-                <CustomControls:ListBoxWithAddRemove x:Name="listBoxLogs" LabelText="Logs"   ItemsSource="{Binding}" DisplayMemberPath="EntryDate" Width="150" />
+                <CustomControls:ListBoxWithAddRemove x:Name="listBoxLogs" LabelText="Logs"   ItemsSource="{Binding SelectedTask.Logs}" DisplayMemberPath="EntryDate" Width="150" />
 
                 <DockPanel VerticalAlignment="Stretch" DockPanel.Dock="Left">
                     <Label>Tags:</Label>
-                    <TextBox x:Name="textBoxLogTags" DockPanel.Dock="Top" Width="Auto" MinWidth="300" Text="{Binding Path=Tags}"></TextBox>
+                    <TextBox x:Name="textBoxLogTags" DockPanel.Dock="Top" Width="Auto" MinWidth="300" Text="{Binding Path=SelectedTask.Tags}"></TextBox>
 
                     <CustomControls:TextBoxWithDescription x:Name="textBoxLogEntry"  ControlFocused="TextBoxWithDescriptionControlFocused" DockPanel.Dock="Top" Text="{Binding Log, Path=Entry, Mode=TwoWay}" LabelText="Log Entry" x:FieldModifier="public" />
                 </DockPanel>
@@ -87,12 +87,12 @@
             <GridSplitter Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Width="7" Background="DarkGray" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
             <DockPanel Grid.Row="0" Grid.Column="3" Grid.RowSpan="3">
-                <CustomControls:TextBoxWithDescription x:Name="textBoxNextSteps"  ControlFocused="TextBoxWithDescriptionControlFocused" MaxHeight="200" DockPanel.Dock="Top" Text="{Binding Path=NextSteps, Mode=TwoWay}" LabelText="Next Steps" />
+                <CustomControls:TextBoxWithDescription x:Name="textBoxNextSteps"  ControlFocused="TextBoxWithDescriptionControlFocused" MaxHeight="200" DockPanel.Dock="Top" Text="{Binding Path=SelectedTask.NextSteps, Mode=TwoWay}" LabelText="Next Steps" />
 
                 <CheckBox x:Name="checkBoxItemsCompletedFilter" DockPanel.Dock="Top" Checked="OnCheckBoxItemsCompletedFilterChecked" Unchecked="OnCheckBoxItemsCompletedFilterChecked">Completed</CheckBox>
                     <CustomControls:ListBoxWithAddRemove LabelText="Don't Forget" DockPanel.Dock="Bottom"   x:Name="listBoxItems" 
                     Grid.Row="0" Grid.Column="3" Grid.RowSpan="3" 
-                    ItemsSource="{Binding Path=EditableValue, Mode=TwoWay}" />
+                    ItemsSource="{Binding Path=SelectedTask.EditableValue, Mode=TwoWay}" />
             </DockPanel>
 
             <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
