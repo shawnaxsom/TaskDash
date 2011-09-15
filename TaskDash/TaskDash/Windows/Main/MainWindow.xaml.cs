@@ -87,7 +87,7 @@ namespace TaskDash
             Grid.SetColumn(TaskListView, 0);
 
             //<Tasks:TaskDetailsView x:Name="taskDetailsView" Grid.Row="1" Grid.Column="1" />
-            _taskDetailsView = new TaskDetailsView();
+            _taskDetailsView = new TaskDetailsView(_taskListView);
             gridMain.Children.Add(TaskDetailsView);
             Grid.SetRow(TaskDetailsView, 1);
             Grid.SetColumn(TaskDetailsView, 1);

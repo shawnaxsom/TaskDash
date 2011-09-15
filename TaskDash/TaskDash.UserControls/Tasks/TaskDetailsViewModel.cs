@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using TaskDash.Core.Models.Tasks;
 using TaskDash.CustomControls.Dialogs;
@@ -10,13 +11,16 @@ namespace TaskDash.UserControls.Tasks
 {
     public class TaskDetailsViewModel : ViewModelBase<TaskDetailsViewModel>
     {
+        public TaskDetailsViewModel(ITaskList taskList)
+        {
+            taskList.SelectedTaskChanged += OnSelectedTaskChanged;
+        }
+
         internal void RefreshItems()
         {
             if (SelectedTask == null) return;
 
             Task task = SelectedTask;
-            if (task == null) return;
-
 
             var view = (ListCollectionView)task.FilteredItems.View;
 
@@ -27,7 +31,13 @@ namespace TaskDash.UserControls.Tasks
         }
 
 
+        public void OnSelectedTaskChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems == null || e.AddedItems.Count == 0) return;
 
+            Task task = (Task)e.AddedItems[0];
+            SelectedTask = task;
+        }
 
 
         public Task SelectedTask

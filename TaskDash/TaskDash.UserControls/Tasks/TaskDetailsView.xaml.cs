@@ -17,32 +17,16 @@ namespace TaskDash.UserControls.Tasks
         {
             InitializeComponent();
 
-            taskList.SelectedTaskChanged += new SelectionChangedEventHandler(OnSelectedTaskChanged);
+            _viewModel = new TaskDetailsViewModel(taskList);
+
+            DataContext = _viewModel;
         }
-
-        public void OnSelectedTaskChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (e.AddedItems == null) return;
-
-            Task task = (Task)e.AddedItems[0];
-            CurrentTask = task;
-        }
-
-
-        private static readonly DependencyProperty CurrentTaskProperty = DependencyProperty.Register(
-            "CurrentTask", typeof(Task), typeof(TaskDetailsView), new PropertyMetadata(null));
 
         private TaskDetailsViewModel _viewModel;
 
-        public Task CurrentTask
-        {
-            get { return (Task) GetValue(CurrentTaskProperty); }
-            set { SetValue(CurrentTaskProperty, value); }
-        }
-
         private void OnButtonStartStopClick(object sender, RoutedEventArgs e)
         {
-            var task = CurrentTask;
+            var task = _viewModel.SelectedTask;
             if (task != null)
             {
                 task.ToggleTimer();
@@ -71,7 +55,7 @@ namespace TaskDash.UserControls.Tasks
 
         private void OnButtonResetClick(object sender, RoutedEventArgs e)
         {
-            var task = CurrentTask;
+            var task = _viewModel.SelectedTask;
             if (task != null)
             {
                 task.ResetTimer();
