@@ -38,7 +38,7 @@ namespace TaskDash
 
             _autoLogger = new AutoLogger()
                               {
-                                  TimeBetweenPrompts = "00:00:30"
+                                  TimeBetweenPrompts = "00:00:05"
                               };
             _autoLogger.LoggingRequested += new LoggingRequestedEventHandler(OnAutoLoggerLoggingRequested);
             _autoLogger.Start();

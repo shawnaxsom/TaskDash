@@ -78,13 +78,23 @@
 
                 <CustomControls:ListBoxWithAddRemove x:Name="listBoxLogs" LabelText="Logs" 
                                                      DataContext="{Binding Path=SelectedTask.Logs, Mode=TwoWay}"
-                                                     ItemsSource="{Binding Path=SelectedTask.Logs, Mode=TwoWay}" DisplayMemberPath="EntryDate" Width="150" />
+                                                     ItemsSource="{Binding Path=SelectedTask.Logs, Mode=TwoWay}" 
+                                                     SelectionChanged="listBoxLogs_SelectionChanged"
+                                                     DisplayMemberPath="EntryDate" Width="150" />
+                <!--TODO: Get rid of SelectionChanged code. Use SelectedItem binding instead, but need to have Logs be a dependencyobject
+                DataContext="{Binding Path=SelectedTask.Logs, Mode=TwoWay}"
+                ItemsSource="{Binding Path=SelectedTask.Logs, Mode=TwoWay}" 
+                SelectedItem="{Binding Path=SelectedTask.Logs.SelectedLog, Mode=TwoWay}"-->
 
                 <DockPanel VerticalAlignment="Stretch" DockPanel.Dock="Left">
                     <Label>Tags:</Label>
                     <TextBox x:Name="textBoxLogTags" DockPanel.Dock="Top" Width="Auto" MinWidth="300" Text="{Binding Path=SelectedTask.Tags}"></TextBox>
 
-                    <CustomControls:TextBoxWithDescription x:Name="textBoxLogEntry"  ControlFocused="TextBoxWithDescriptionControlFocused" DockPanel.Dock="Top" Text="{Binding Log, Path=Entry, Mode=TwoWay}" LabelText="Log Entry" x:FieldModifier="public" />
+                    <CustomControls:TextBoxWithDescription x:Name="textBoxLogEntry"  ControlFocused="TextBoxWithDescriptionControlFocused" DockPanel.Dock="Top" 
+                                                           LabelText="Log Entry" x:FieldModifier="public"
+                                                           Text="{Binding Path=SelectedLog.Entry, Mode=TwoWay}" />
+                                                           <!--Text="{Binding ElementName=listBoxLogs, Path=DataContext.SelectedLog.Entry}" 
+                                                            />-->
                 </DockPanel>
             </DockPanel>
 

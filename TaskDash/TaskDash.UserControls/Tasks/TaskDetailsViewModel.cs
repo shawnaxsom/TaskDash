@@ -11,9 +11,20 @@ namespace TaskDash.UserControls.Tasks
 {
     public class TaskDetailsViewModel : ViewModelBase<TaskDetailsViewModel>
     {
-        public TaskDetailsViewModel(ITaskList taskList)
+        private TaskDetailsView _view;
+
+        public TaskDetailsViewModel(TaskDetailsView view, ITaskList taskList)
         {
+            _view = view;
+
             taskList.SelectedTaskChanged += OnSelectedTaskChanged;
+
+            _view.ListBoxLogs.SelectionChanged += OnSelectedLogChanged;
+        }
+
+        private void OnSelectedLogChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //TODO: We should be able to use data binding in XAML instead
         }
 
         internal void RefreshItems()
@@ -49,14 +60,17 @@ namespace TaskDash.UserControls.Tasks
         public static readonly DependencyProperty SelectedTaskProperty =
             DependencyProperty.Register("SelectedTask", typeof(Task), typeof(TaskDetailsViewModel), new UIPropertyMetadata(null));
 
-        private TaskDetailsView _view;
 
-        public TaskDetailsViewModel(TaskDetailsView view)
+        public Log SelectedLog
         {
-            _view = view;
+            get { return (Log)GetValue(SelectedLogProperty); }
+            set { SetValue(SelectedLogProperty, value); }
         }
 
+        public static readonly DependencyProperty SelectedLogProperty =
+            DependencyProperty.Register("SelectedLog", typeof(Log), typeof(TaskDetailsViewModel), new UIPropertyMetadata(null));
 
+        
         private void RefreshLogs()
         {
             if (SelectedTask == null) return;

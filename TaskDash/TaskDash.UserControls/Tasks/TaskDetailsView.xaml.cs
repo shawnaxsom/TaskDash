@@ -17,7 +17,7 @@ namespace TaskDash.UserControls.Tasks
         {
             InitializeComponent();
 
-            _viewModel = new TaskDetailsViewModel(taskList);
+            _viewModel = new TaskDetailsViewModel(this, taskList);
 
             DataContext = ViewModel;
         }
@@ -177,6 +177,19 @@ namespace TaskDash.UserControls.Tasks
                     textBoxLogEntry.Focus();
                     e.Handled = true;
                 }
+            }
+        }
+
+        private void listBoxLogs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //TODO: This shouldn't be necessary, do it in XAML
+            if (e.AddedItems.Count == 0)
+            {
+                _viewModel.SelectedLog = null;
+            }
+            else
+            {
+                _viewModel.SelectedLog = (Log) e.AddedItems[0];
             }
         }
     }

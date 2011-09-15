@@ -16,3 +16,6 @@
 *.pdb
 *.manifest
 *.exe.config
+TaskDash.exe.CodeAnalysisLog.xml
+TaskDash.exe.lastcodeanalysissucceeded
+../~$TODO.xlsx

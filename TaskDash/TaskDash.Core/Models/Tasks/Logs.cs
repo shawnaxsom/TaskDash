@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using Norm.Attributes;
 
 namespace TaskDash.Core.Models.Tasks
@@ -10,6 +11,7 @@ namespace TaskDash.Core.Models.Tasks
     public class Logs<T> : ModelCollectionBase<Log>
     {
         private TagList _logTagList;
+        private Log _selectedLog;
 
         [MongoIgnore]
         public TagList LogTagList
@@ -23,7 +25,7 @@ namespace TaskDash.Core.Models.Tasks
             }
         }
 
-        public Logs() 
+        public Logs()
         {
             //RegisterPropertyChanged();
             //RefreshLogTagList();
@@ -55,6 +57,19 @@ namespace TaskDash.Core.Models.Tasks
                 log.PropertyChanged += OnLogsPropertyChanged;
             }
         }
+
+
+
+        public Log SelectedLog
+        {
+            get { return _selectedLog; }
+            set
+            {
+                _selectedLog = value;
+            }
+        }
+
+
 
         private void OnLogsPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
