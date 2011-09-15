@@ -27,7 +27,7 @@ namespace TaskDash
             get { return CurrentTaskLogs.GetMostRecentLog(); }
         }
 
-        public string NewLogEntry { get; private set; }
+        public string NewLogEntry { get; set; }
         public bool DeserveBreak { get; set; }
         private string _breakTime = "00:03:00";
         public string BreakTime

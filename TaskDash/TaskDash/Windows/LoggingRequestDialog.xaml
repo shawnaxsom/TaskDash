@@ -3,15 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:CustomControls="clr-namespace:TaskDash.CustomControls;assembly=TaskDash.CustomControls" Title="LoggingRequestDialog" Height="272" Width="421">
     <StackPanel>
         <Label>Your last log was:</Label>
-        <CustomControls:TextBoxWithDescription LabelText="Log Date" Text="{Binding MostRecentLog.EntryDate}" />
-        <CustomControls:TextBoxWithDescription LabelText="Log" Text="{Binding MostRecentLog.Entry}" />
+        <CustomControls:TextBoxWithDescription LabelText="Log Date" Text="{Binding MostRecentLog.EntryDate, Mode=TwoWay}" />
+        <CustomControls:TextBoxWithDescription LabelText="Log" Text="{Binding MostRecentLog.Entry, Mode=TwoWay}" />
 
         <Label>What have you accomplished since then?</Label>
-        <CustomControls:TextBoxWithDescription LabelText="New Log Entry" Text="{Binding NewLogEntry}" />
+        <CustomControls:TextBoxWithDescription LabelText="New Log Entry" Text="{Binding NewLogEntry, Mode=TwoWay}" />
         <StackPanel Orientation="Horizontal">
-            <CheckBox IsChecked="{Binding DeserveBreak}">I deserve a break!</CheckBox>
+            <CheckBox IsChecked="{Binding DeserveBreak, Mode=TwoWay}">I deserve a break!</CheckBox>
             <Label>Break Time:</Label>
-            <TextBox Text="{Binding BreakTime}" Visibility="{Binding ShowBreakTime}" />
+            <TextBox Text="{Binding BreakTime, Mode=TwoWay}" Visibility="{Binding ShowBreakTime}" />
         </StackPanel>
             
         <Button x:Name="buttonOk" Command="{Binding OnLoggingRequestDialogClickCommand}">OK</Button>
