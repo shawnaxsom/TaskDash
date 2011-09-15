@@ -188,10 +188,12 @@ namespace TaskDash
                 if (e.Key == Key.W)
                 {
                     Close();
+                    e.Handled = true;
                 }
                 else if (e.Key == Key.S)
                 {
                     Save();
+                    e.Handled = true;
                 }
             }
             else
@@ -200,16 +202,19 @@ namespace TaskDash
                          && (e.Key == Key.N))
                 {
                     Cycle(1);
+                    e.Handled = true;
                 }
                 else if (!IsEditing
                          && (e.Key == Key.P))
                 {
                     Cycle(-1);
+                    e.Handled = true;
                 }
                 else if (!IsEditing
                          && (e.Key == Key.F5))
                 {
                     Refresh();
+                    e.Handled = true;
                 }
             }
         }

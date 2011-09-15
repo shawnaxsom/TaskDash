@@ -22,9 +22,9 @@ namespace TaskDash.UserControls.Tasks
 
         public void OnSelectedTaskChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.AddedItems == 0) return;
+            if (e.AddedItems == null) return;
 
-            Task task = e.AddedItems[0];
+            Task task = (Task)e.AddedItems[0];
             CurrentTask = task;
         }
 
@@ -171,12 +171,14 @@ namespace TaskDash.UserControls.Tasks
         {
             if (e.Handled) return;
 
-            if (e.Key == Key.I)
+            if (!IsEditing
+                     && e.Key == Key.I)
             {
                 AddItemOrFocus(listBoxItems);
                 e.Handled = true;
             }
-            else if (e.Key == Key.L)
+            else if (!IsEditing
+                     && e.Key == Key.L)
             {
                 AddItemOrFocus(listBoxLogs);
                 if (!IsEditing

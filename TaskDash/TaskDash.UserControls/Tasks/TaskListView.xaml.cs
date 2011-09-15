@@ -158,7 +158,8 @@ namespace TaskDash.UserControls.Tasks
         {
             if (e.Handled) return;
 
-            if (e.Key == Key.T)
+            if (!IsEditing
+                     && e.Key == Key.T)
             {
                 AddItemOrFocus(listBoxTasks);
                 e.Handled = true;
