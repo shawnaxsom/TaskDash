@@ -20,7 +20,6 @@ namespace TaskDash
             InitializeComponent();
 
             _window = window;
-            Icon = new BitmapImage(new Uri(@"C:\Users\Shawn.Axsom\Desktop\TaskDash.ico"));
         }
 
         public void AddControl(Control control)

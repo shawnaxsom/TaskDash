@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Windows.Media;
+using TaskDash.Core.Images;
+
 namespace TaskDash.Properties {
     using System;
     
@@ -66,6 +69,13 @@ namespace TaskDash.Properties {
         internal static string MainWindow_LoadTrayIcon_TaskDash_ {
             get {
                 return ResourceManager.GetString("MainWindow_LoadTrayIcon_TaskDash_", resourceCulture);
+            }
+        }
+        
+        public static ImageSource TaskDash {
+            get {
+                object obj = ResourceManager.GetObject("TaskDash", resourceCulture);
+                return ((System.Drawing.Icon)(obj)).ToImageSource();
             }
         }
     }

@@ -52,7 +52,7 @@ namespace TaskDash
             ShowTrayIcon(true);
         }
 
-        protected BitmapImage Icon { get { return new BitmapImage(new Uri(@"C:\Users\Shawn.Axsom\Desktop\TaskDash.ico")); } }
+        //protected BitmapImage Icon { get { return new BitmapImage(new Uri(@"C:\Users\Shawn.Axsom\Desktop\TaskDash.ico")); } }
 
         public TaskDetailsView ViewDetails
         {
@@ -78,7 +78,7 @@ namespace TaskDash
             {
                 BalloonTipTitle = Properties.Resources.MainWindow_LoadTrayIcon_TaskDash_,
                 Text = Properties.Resources.MainWindow_LoadTrayIcon_TaskDash_,
-                Icon = new Icon(@"C:\Users\Shawn.Axsom\Desktop\TaskDash.ico")
+                //Icon = new Icon(@"C:\Users\Shawn.Axsom\Desktop\TaskDash.ico")
             };
 
             _notifyIcon.Click += OnNotifyIconClick;

@@ -28,3 +28,4 @@ C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash.exe
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash.pdb
+C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash_MarkupCompile.lref
