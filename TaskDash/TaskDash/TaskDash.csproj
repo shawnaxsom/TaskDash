@@ -89,10 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\DelayTaskCommand.cs" />
-    <Compile Include="Commands\ITaskCommand.cs" />
-    <Compile Include="Commands\ITaskDashCommand.cs" />
     <Compile Include="Commands\OpenTaskCommand.cs" />
     <Compile Include="Commands\RemoveNotificationCommand.cs" />
     <Compile Include="Windows\DockWindow.xaml.cs">
@@ -101,6 +98,10 @@
     <Page Include="Windows\DockWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\LoggingRequestDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +112,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ExtensionMethods\ControlExtensionMethods.cs" />
+    <Compile Include="Windows\LoggingRequestDialog.xaml.cs">
+      <DependentUpon>LoggingRequestDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LoggingRequestDialogViewModel.cs" />
     <Compile Include="Windows\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

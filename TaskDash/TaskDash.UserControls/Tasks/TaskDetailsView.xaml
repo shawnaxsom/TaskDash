@@ -70,11 +70,15 @@
                 <!--<Label DockPanel.Dock="Top" Background="#069" Foreground="White" Height="25">Logs</Label>-->
 
                 <DockPanel HorizontalAlignment="Stretch" DockPanel.Dock="Top">
+                    <Label>AutoLog Timer:</Label>
+                    <TextBox x:Name="textBoxAutoLog" Text="{Binding SelectedTask.Logs.AutoLogLength}" />
                     <Label>Filter Tags By:</Label>
                     <ComboBox x:Name="comboBoxLogTagsFilter" DockPanel.Dock="Right" ItemsSource="{Binding Path=SelectedTask.LogTagList}" DisplayMemberPath="TagName" SelectionChanged="OnComboBoxLogTagsFilterSelectionChanged" />
                 </DockPanel>
 
-                <CustomControls:ListBoxWithAddRemove x:Name="listBoxLogs" LabelText="Logs"   ItemsSource="{Binding SelectedTask.Logs}" DisplayMemberPath="EntryDate" Width="150" />
+                <CustomControls:ListBoxWithAddRemove x:Name="listBoxLogs" LabelText="Logs" 
+                                                     DataContext="{Binding Path=SelectedTask.Logs, Mode=TwoWay}"
+                                                     ItemsSource="{Binding Path=SelectedTask.Logs, Mode=TwoWay}" DisplayMemberPath="EntryDate" Width="150" />
 
                 <DockPanel VerticalAlignment="Stretch" DockPanel.Dock="Left">
                     <Label>Tags:</Label>

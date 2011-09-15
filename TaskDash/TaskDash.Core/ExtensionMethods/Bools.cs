@@ -20,6 +20,18 @@ namespace TaskDash.Core.ExtensionMethods
             }
         }
 
+        public static bool FromVisible(Visibility visible)
+        {
+            if (visible == Visibility.Visible)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static Visibility Toggle(this Visibility current)
         {
             if (current == Visibility.Visible)

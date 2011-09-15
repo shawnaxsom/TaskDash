@@ -13,9 +13,11 @@ namespace TaskDash
 {
     public class LoggingRequestDialogViewModel : ViewModelBase<MainWindowViewModel>
     {
-        public LoggingRequestDialogViewModel(Logs<Log> currentTaskLogs)
+        public LoggingRequestDialogViewModel(Window window, Logs<Log> currentTaskLogs)
         {
             CurrentTaskLogs = currentTaskLogs;
+
+            _onLoggingRequestDialogClickCommand = new OnLoggingRequestDialogClickCommand(window, this);
         }
 
         public Logs<Log> CurrentTaskLogs { get; private set; }
@@ -26,20 +28,26 @@ namespace TaskDash
         }
 
         public string NewLogEntry { get; private set; }
-        public bool DeserveBreak { get; private set; }
-        private string _breakTime = "00:05:00";
+        public bool DeserveBreak { get; set; }
+        private string _breakTime = "00:03:00";
         public string BreakTime
         {
             get { return _breakTime; }
-            private set { _breakTime = value; }
+            set { _breakTime = value; }
         }
 
         public Visibility ShowBreakTime
         {
             get { return DeserveBreak.ToVisible(); }
+            set { DeserveBreak = Bools.FromVisible(value); }
         }
 
-        public OnLoggingRequestDialogClickCommand _onLoggingRequestDialogClickCommand;
+        public OnLoggingRequestDialogClickCommand OnLoggingRequestDialogClickCommand
+        {
+            get { return _onLoggingRequestDialogClickCommand; }
+        }
+
+        private OnLoggingRequestDialogClickCommand _onLoggingRequestDialogClickCommand;
     }
 
     public class OnLoggingRequestDialogClickCommand : ICommand
@@ -66,11 +74,11 @@ namespace TaskDash
         {
             if (_viewModel.DeserveBreak)
             {
-                
+                throw new NotImplementedException();
             }
             else
             {
-                
+                _window.Close();
             }
         }
 

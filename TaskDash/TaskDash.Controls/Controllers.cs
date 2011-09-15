@@ -2,10 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Input;
 using TaskDash.CustomControls.ExtensionMethods;
 using TaskDash.Core;
-using TaskDash.Core.Models.Tasks;
 
 namespace TaskDash.CustomControls
 {
@@ -31,6 +29,10 @@ namespace TaskDash.CustomControls
             {
                 var items = (IModelCollection) binding.DataItem;
                 items.AddNew();
+            }
+            else
+            {
+                throw new InvalidCastException("The bound data type is null or not implemented.");
             }
 
             ListBoxItem listBoxItem = listBoxControl.GetLastListBoxItemFromListBox();

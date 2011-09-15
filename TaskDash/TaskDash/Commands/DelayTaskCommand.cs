@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Windows.Input;
-using TaskDash.Core.Models;
 using TaskDash.Core.Models.Tasks;
 
 namespace TaskDash.Commands

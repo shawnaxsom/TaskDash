@@ -38,9 +38,9 @@ namespace TaskDash
 
             _autoLogger = new AutoLogger()
                               {
-                                  TimeBetweenPrompts = "00:00:10"
+                                  TimeBetweenPrompts = "00:00:30"
                               };
-            _autoLogger.LoggingRequested += new LoggingRequestedEventHandler(_autoLogger_LoggingRequested);
+            _autoLogger.LoggingRequested += new LoggingRequestedEventHandler(OnAutoLoggerLoggingRequested);
             _autoLogger.Start();
 
 
@@ -149,37 +149,17 @@ namespace TaskDash
             task.HandleClipboardData(_clipboardMonitor);
         }
 
-        private void _autoLogger_LoggingRequested(object sender, LoggingRequestedEventHandlerArgs args)
+        private void OnAutoLoggerLoggingRequested(object sender, LoggingRequestedEventHandlerArgs args)
         {
-            //TODO: CurrentTask is always null
-            if (CurrentTask == null) return;
+            if (SelectedTask == null) return;
 
-            //LoggingRequestDialogViewModel viewModel = new LoggingRequestDialogViewModel(CurrentTask.Logs);
-            //LoggingRequestDialog dialog = new LoggingRequestDialog(viewModel);
-            //dialog.Show();
-
-            throw new NotImplementedException();
+            LoggingRequestDialog dialog = new LoggingRequestDialog(SelectedTask.Logs);
+            dialog.ShowDialog();
         }
 
-        //private Task _currentTask;
-        //public Task CurrentTask
-        //{
-        //    get { return _currentTask; }
-        //    set
-        //    {
-        //        _currentTask = value;
-        //        OnPropertyChanged("CurrentTask");
-        //        OnPropertyChanged("CurrentTask.Key");
-        //        OnPropertyChanged("Key");
-        //    }
-        //}
-        private static readonly DependencyProperty CurrentTaskProperty =
-           DependencyProperty.Register("CurrentTask", typeof(Task), typeof(MainWindowViewModel),
-                                       new PropertyMetadata(null));
-        public Task CurrentTask
+        public Task SelectedTask
         {
-            get { return (Task) GetValue(CurrentTaskProperty); }
-            set { SetValue(CurrentTaskProperty, value); }
+            get { return _viewDetails.ViewModel.SelectedTask; }
         }
 
         public List<System.Windows.Controls.Control> DefaultDockingControls

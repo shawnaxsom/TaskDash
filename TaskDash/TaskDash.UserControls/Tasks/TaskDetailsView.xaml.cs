@@ -19,14 +19,14 @@ namespace TaskDash.UserControls.Tasks
 
             _viewModel = new TaskDetailsViewModel(taskList);
 
-            DataContext = _viewModel;
+            DataContext = ViewModel;
         }
 
         private TaskDetailsViewModel _viewModel;
 
         private void OnButtonStartStopClick(object sender, RoutedEventArgs e)
         {
-            var task = _viewModel.SelectedTask;
+            var task = ViewModel.SelectedTask;
             if (task != null)
             {
                 task.ToggleTimer();
@@ -50,12 +50,12 @@ namespace TaskDash.UserControls.Tasks
 
         private void OnCheckBoxItemsCompletedFilterChecked(object sender, RoutedEventArgs e)
         {
-            _viewModel.RefreshItems();
+            ViewModel.RefreshItems();
         }
 
         private void OnButtonResetClick(object sender, RoutedEventArgs e)
         {
-            var task = _viewModel.SelectedTask;
+            var task = ViewModel.SelectedTask;
             if (task != null)
             {
                 task.ResetTimer();
@@ -80,20 +80,20 @@ namespace TaskDash.UserControls.Tasks
 
         private void OnButtonIssueTrackerClick(object sender, RoutedEventArgs e)
         {
-            _viewModel.OpenIssueTracker();
+            ViewModel.OpenIssueTracker();
         }
 
         private void OnListBoxItemsKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                _viewModel.ShowEditTaskItemDialog();
+                ViewModel.ShowEditTaskItemDialog();
             }
         }
 
         private void EditTaskItemClick(object sender, RoutedEventArgs e)
         {
-            _viewModel.ShowEditTaskItemDialog();
+            ViewModel.ShowEditTaskItemDialog();
         }
 
         public TextBoxWithDescription TextBoxLogEntry
@@ -146,9 +146,14 @@ namespace TaskDash.UserControls.Tasks
             get { return textBoxKey; }
         }
 
+        public TaskDetailsViewModel ViewModel
+        {
+            get { return _viewModel; }
+        }
+
         private void OnButtonIssueTrackerSearchClick(object sender, RoutedEventArgs e)
         {
-            _viewModel.FindInIssueTracker();
+            ViewModel.FindInIssueTracker();
         }
 
         public void OnWindowKeyDown(object sender, KeyEventArgs e)

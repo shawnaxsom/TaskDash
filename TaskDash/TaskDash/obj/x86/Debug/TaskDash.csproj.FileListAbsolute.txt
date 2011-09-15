@@ -29,3 +29,5 @@ C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash.exe
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash.pdb
 C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\TaskDash_MarkupCompile.lref
+C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\LoggingRequestDialog.baml
+C:\Users\Shawn.Axsom\Documents\Projects\TaskDash\TaskDash\TaskDash\obj\x86\Debug\Windows\LoggingRequestDialog.g.cs

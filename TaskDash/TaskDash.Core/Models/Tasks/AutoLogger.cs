@@ -37,6 +37,7 @@ namespace TaskDash.Core.Models.Tasks
                 if (TimeSpan.TryParse(value, out newTime))
                 {
                     _timeBetweenPrompts = newTime;
+                    _stopWatch.Interval = newTime;
                     OnPropertyChanged("TimeBetweenPrompts");
                 }
             }

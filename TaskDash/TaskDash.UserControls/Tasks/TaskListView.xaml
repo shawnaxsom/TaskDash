@@ -10,7 +10,9 @@
             <Label DockPanel.Dock="Top" Background="#069" Foreground="White" Height="25">Search</Label>
             <DockPanel HorizontalAlignment="Stretch" DockPanel.Dock="Top">
             	<Label>Filter Tags By:</Label>
-            	<ComboBox x:Name="comboBoxTagsFilter" DockPanel.Dock="Right" ItemsSource="{Binding}" DisplayMemberPath="TagName" SelectionChanged="OnComboBoxTagsFilterSelectionChanged" />
+            	<ComboBox x:Name="comboBoxTagsFilter" DockPanel.Dock="Right" 
+                          DataContext="{Binding Tasks}"
+                          ItemsSource="{Binding TagList}" DisplayMemberPath="TagName" SelectionChanged="OnComboBoxTagsFilterSelectionChanged" />
             </DockPanel>
             <TextBox x:Name="textBoxSearch" DockPanel.Dock="Top" KeyUp="OnTextBoxSearchKeyUp" KeyDown="OnTextBoxSearchKeyDown" x:FieldModifier="public"></TextBox>
             <DockPanel HorizontalAlignment="Stretch" DockPanel.Dock="Top">
@@ -23,6 +25,7 @@
 
             <!--<TaskDashControls:ListBoxTasks x:Name="listBoxTasks"  DockPanel.Dock="Top" ItemsSource="{Binding Path=Task, Mode=TwoWay}" KeyDown="OnListBoxTasksKeyDown" SelectionChanged="OnListBoxTasksSelectionChanged" Loaded="OnListBoxTasksLoaded" />-->
             <CustomControls:ListBoxTasks x:Name="listBoxTasks"  DockPanel.Dock="Top" 
+                DataContext="{Binding Path=FilteredTasks, Mode=TwoWay}"
                 ItemsSource="{Binding Path=Task, Mode=TwoWay}" SelectionChanged="OnListBoxTasksSelectionChanged" Loaded="OnListBoxTasksLoaded" />
         </DockPanel>
     </Grid>

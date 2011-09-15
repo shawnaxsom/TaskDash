@@ -49,6 +49,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Commands\ITaskCommand.cs" />
+    <Compile Include="Commands\ITaskDashCommand.cs" />
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="ExtensionMethods\Bools.cs" />
     <Compile Include="ExtensionMethods\Collections.cs" />

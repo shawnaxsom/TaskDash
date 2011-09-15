@@ -2,7 +2,7 @@
 
 namespace TaskDash.Commands
 {
-    interface ITaskCommand : ITaskDashCommand
+    public interface ITaskCommand : ITaskDashCommand
     {
         Task Task { get; set; }
     }

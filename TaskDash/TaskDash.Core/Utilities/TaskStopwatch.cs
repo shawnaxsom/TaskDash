@@ -64,6 +64,12 @@ namespace TaskDash.Core.Utilities
             get { return _stopwatch.Elapsed; }
         }
 
+        public TimeSpan Interval
+        {
+            get { return _refreshtimer.Interval; }
+            set { _refreshtimer.Interval = value; }
+        }
+
         public TimeSpan Start()
         {
             _stopwatch.Start();

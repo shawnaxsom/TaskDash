@@ -32,10 +32,13 @@ namespace TaskDash.UserControls.Tasks
 
             ViewModel = new TaskListViewModel(this);
 
+            DataContext = ViewModel;
 
-            listBoxTasks.DataContext = ViewModel.FilteredTasks; // TODO: Is there any way to bind this behind the scenes?
-            comboBoxTagsFilter.DataContext = ViewModel.Tasks.TagList;
+            //listBoxTasks.DataContext = ViewModel.FilteredTasks; // TODO: Is there any way to bind this behind the scenes?
+            //comboBoxTagsFilter.DataContext = ViewModel.Tasks.TagList;
             comboBoxSortBy.DataContext = TaskComparer.Instance;
+
+
 
             ViewModel.FilteredTasks.Filter += OnFilteredTasksFilter;
 
